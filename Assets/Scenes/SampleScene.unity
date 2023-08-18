@@ -445,11 +445,14 @@ MonoBehaviour:
   waypointList:
   - {x: -2.8, y: -21.8, z: 0}
   - {x: 16.4, y: -44.1, z: 0}
-  waitTimeList: []
+  waitTimeList:
+  - 5
+  - 5
   aimDirection: {x: 0, y: 0, z: 0}
   pfFieldOfView: {fileID: 1814739183}
   fov: 90
   viewDistance: 50
+  player: {fileID: 0}
 --- !u!1 &1265685529
 GameObject:
   m_ObjectHideFlags: 0
