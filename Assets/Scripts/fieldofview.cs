@@ -9,6 +9,7 @@ public class fieldofview : MonoBehaviour
     private float fov;
     private Vector3 origin;
     private float startingAngle;
+    private float viewDistance;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,13 +22,12 @@ public class fieldofview : MonoBehaviour
         
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
        
         int rayCount = 50;
         float angle = startingAngle;
         float angleIncrease = fov / rayCount;
-        float viewDistance = 50f;
 
         Vector3[] vertices = new Vector3[rayCount + 1 + 1];
         Vector2[] uv = new Vector2[vertices.Length];
@@ -80,7 +80,7 @@ public class fieldofview : MonoBehaviour
     }
     public void setAimDirection(Vector3 aimDirection)
     {
-        startingAngle = GetAngleFromVectorFloat(aimDirection) - fov / 2f;
+        startingAngle = GetAngleFromVectorFloat(aimDirection) + fov / 2f;
     }
     float GetAngleFromVectorFloat(Vector3 dir)
     {
@@ -94,5 +94,16 @@ public class fieldofview : MonoBehaviour
     {
         float angleRad = angle * (Mathf.PI / 180f);
         return new Vector3(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
+    }
+
+
+    public void SetFoV(float fov)
+    {
+        this.fov = fov;
+    }
+
+    public void SetViewDistance(float viewDistance)
+    {
+        this.viewDistance = viewDistance;
     }
 }
