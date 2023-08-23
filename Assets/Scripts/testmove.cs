@@ -54,9 +54,6 @@ public class testmove : MonoBehaviour
                 HandleMovement();
                 FindTargetPlayer();
                 break;
-            case State.AttackingPlayer:
-             //   AttackPlayer();
-                break;
             case State.Busy:
                 break;
         }
@@ -114,7 +111,7 @@ public class testmove : MonoBehaviour
     }
     private void FindTargetPlayer()
     {
-        /*
+        
         if (Vector3.Distance(GetPosition(), player.GetPosition()) < viewDistance)
         {
             // Player inside viewDistance
@@ -129,6 +126,7 @@ public class testmove : MonoBehaviour
                     if (raycastHit2D.collider.gameObject.GetComponent<Player>() != null)
                     {
                         // Hàm bắt sự kiện khi người chơi trong tầm nhìn (Chưa làm)
+                        Debug.Log("Hitting");
                         
                     }
                     else
@@ -136,9 +134,14 @@ public class testmove : MonoBehaviour
                         // Hit something else
                     }
                 }
-            }
+            } 
         }
-        */
+        
+    }
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
     }
 
 }
