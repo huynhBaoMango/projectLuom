@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         if (Input.GetKey(KeyCode.RightArrow)){
-            transform.Translate(Vector3.right * tocdo * Time.deltaTime, relativeTo:Space.World);
+            transform.Translate(Vector3.right.normalized * tocdo * Time.deltaTime, relativeTo:Space.World);
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         if (Input.GetKey(KeyCode.LeftArrow)){
