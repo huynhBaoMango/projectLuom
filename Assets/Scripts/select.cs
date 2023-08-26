@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class select : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class select : MonoBehaviour
     changePosition(-1);
     if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
     changePosition(1);
+   if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.E))
+    Interact();
   }
   private void changePosition(int _change)
   {
@@ -34,5 +37,11 @@ public class select : MonoBehaviour
 
     //gan mui ten di chuyen len xuong
     rect.position=new Vector3(rect.position.x,options[currentPosition].position.y, 0);
+
   }
+  private void Interact()
+  {
+    options[currentPosition].GetComponent<Button>().onClick.Invoke();
+  }
+
 }
