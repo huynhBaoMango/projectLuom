@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class testmove : MonoBehaviour
 {
-    private const float speed = 25f;
+    public const float speed = 2f;
 
     [SerializeField] private List<Vector3> waypointList;
     [SerializeField] private List<float> waitTimeList;

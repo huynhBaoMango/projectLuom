@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tocdo = 10;
+        tocdo = 2;
     }
 
     // Update is called once per frame
@@ -16,35 +16,35 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.RightArrow)){
             transform.Translate(Vector3.right.normalized * tocdo * Time.deltaTime, relativeTo:Space.World);
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            transform.rotation = Quaternion.Euler(0, 0, 270);
         }
         if (Input.GetKey(KeyCode.LeftArrow)){
             transform.Translate(Vector3.left.normalized * tocdo * Time.deltaTime, relativeTo: Space.World);
-            transform.rotation = Quaternion.Euler(0, 0, 180);
+            transform.rotation = Quaternion.Euler(0, 0, 90);
         }
         if (Input.GetKey(KeyCode.UpArrow)){
             transform.Translate(Vector3.up.normalized * tocdo * Time.deltaTime, relativeTo: Space.World);
-            transform.rotation = Quaternion.Euler(0, 0, 90);
+            transform.rotation = Quaternion.Euler(0, 0, 360);
         }
         if (Input.GetKey(KeyCode.DownArrow)){
             transform.Translate(Vector3.down.normalized * tocdo * Time.deltaTime, relativeTo: Space.World);
-            transform.rotation = Quaternion.Euler(0, 0, 270);
+            transform.rotation = Quaternion.Euler(0, 0, 180);
         }
         if(Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.UpArrow))
         {
-            transform.rotation = Quaternion.Euler(0, 0, 45);
+            transform.rotation = Quaternion.Euler(0, 0, 315);
         }
         if (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.DownArrow))
         {
-            transform.rotation = Quaternion.Euler(0, 0, 335);
+            transform.rotation = Quaternion.Euler(0, 0, 225);
         }
         if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.rotation = Quaternion.Euler(0, 0, 225);
+            transform.rotation = Quaternion.Euler(0, 0, 135);
         }
         if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.UpArrow))
         {
-            transform.rotation = Quaternion.Euler(0, 0, 135);
+            transform.rotation = Quaternion.Euler(0, 0, 425);
         }
     }
 
