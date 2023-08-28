@@ -73,7 +73,7 @@ public class testmove : MonoBehaviour
 
     public void HandleMovement()
     {
-
+        
         switch (state)
         {
             case State.Waiting:
@@ -88,7 +88,7 @@ public class testmove : MonoBehaviour
                 Vector3 waypointDir = (waypoint - transform.position).normalized;
                 lastMoveDir = waypointDir;
 
-
+                
 
                 float distanceBefore = Vector3.Distance(transform.position, waypoint);
                 transform.position = transform.position + waypointDir * speed * Time.deltaTime;
@@ -102,12 +102,16 @@ public class testmove : MonoBehaviour
                     waypointIndex = (waypointIndex + 1) % waypointList.Count;
                     state = State.Waiting;
                 }
+
+                //xoay đối tượng theo hướng di chuyển
+                float angle = Mathf.Atan2(waypointDir.y, waypointDir.x);
+                this.transform.rotation = Quaternion.Euler(0f, 0f, angle * Mathf.Rad2Deg - 90f);
+
                 break;
                 
 
         }
-        
-        
+
     }
     private void FindTargetPlayer()
     {
