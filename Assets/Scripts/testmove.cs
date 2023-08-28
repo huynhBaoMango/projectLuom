@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class testmove : MonoBehaviour
 {
@@ -138,6 +139,9 @@ public class testmove : MonoBehaviour
                         // Hit something else
                     }
                 }
+                // Tải scenes mới
+                UnityEngine.SceneManagement.SceneManager.LoadScene("Menuketthuc");
+
             } 
         }
         

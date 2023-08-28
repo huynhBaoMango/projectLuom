@@ -7,7 +7,7 @@ public class menuedie : MonoBehaviour
     // Start is called before the first frame update
     public void restart()
     {
-        SceneManager.LoadScene("SampleScene");
+         UnityEngine.SceneManagement.SceneManager.LoadScene("Luom");
     }
     public void Quitgame()
     {

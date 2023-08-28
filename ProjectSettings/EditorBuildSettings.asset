@@ -8,7 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/menubatdau.unity
     guid: 9977a421067823148a9376fb5219eceb
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/GamePlay/Luom.unity
+    guid: 42cde9026b7f80f48aec4f2631e2ccd1
+  - enabled: 1
+    path: Assets/Scenes/menuketthuc.unity
+    guid: df37c3951ff0fe5408f998310eac6dc4
   m_configObjects: {}

@@ -7,7 +7,7 @@ public class manager : MonoBehaviour
 {
     public void restart()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Luom");
     }
     public void Quitgame()
     {
