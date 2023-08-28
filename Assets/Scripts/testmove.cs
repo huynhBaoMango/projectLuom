@@ -132,15 +132,15 @@ public class testmove : MonoBehaviour
                     {
                         // Hàm bắt sự kiện khi người chơi trong tầm nhìn (Chưa làm)
                         Debug.Log("Hitting");
-                        
+                        // Tải scenes mới
+                        UnityEngine.SceneManagement.SceneManager.LoadScene("Menuketthuc");
                     }
                     else
                     {
                         // Hit something else
                     }
                 }
-                // Tải scenes mới
-                UnityEngine.SceneManagement.SceneManager.LoadScene("Menuketthuc");
+                
 
             } 
         }
