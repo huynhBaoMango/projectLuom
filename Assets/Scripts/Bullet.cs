@@ -16,6 +16,8 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
+        float angle = Mathf.Atan2(moveDirection.y, moveDirection.x);
+        this.transform.rotation = Quaternion.Euler(0f, 0f, angle * Mathf.Rad2Deg);
         // Thêm một lực hướng lên vào moveDirection khi di chuyển lên
         if (moveDirection.y > 0)
         {
