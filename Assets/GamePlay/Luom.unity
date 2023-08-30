@@ -661,6 +661,7 @@ MonoBehaviour:
   - {x: -5.2, y: 2.35, z: 0}
   waitTimeList:
   - 10000
+  bulletPrefab: {fileID: 0}
   aimDirection: {x: 0, y: 90, z: 0}
   pfFieldOfView: {fileID: 367959739}
   fov: 90
@@ -767,6 +768,7 @@ MonoBehaviour:
   - {x: -5.2, y: 2.35, z: 0}
   waitTimeList:
   - 10000
+  bulletPrefab: {fileID: 0}
   aimDirection: {x: 0, y: -180, z: 0}
   pfFieldOfView: {fileID: 367959739}
   fov: 90
@@ -143607,6 +143609,7 @@ MonoBehaviour:
   - {x: -5.2, y: 2.35, z: 0}
   waitTimeList:
   - 10000
+  bulletPrefab: {fileID: 0}
   aimDirection: {x: 0, y: -180, z: 0}
   pfFieldOfView: {fileID: 367959739}
   fov: 90
