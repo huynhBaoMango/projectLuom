@@ -11,7 +11,7 @@ public class testmove : MonoBehaviour
     [SerializeField] private List<float> waitTimeList;
     private int waypointIndex;
 
-
+public GameObject bulletPrefab;
     [SerializeField] private Vector3 aimDirection;
     [SerializeField] private Transform pfFieldOfView;
     [SerializeField] private float fov = 90f;
@@ -114,39 +114,30 @@ public class testmove : MonoBehaviour
         }
 
     }
-    private void FindTargetPlayer()
+private void FindTargetPlayer()
+{
+    if (Vector3.Distance(GetPosition(), player.GetPosition()) < viewDistance)
     {
-        
-        if (Vector3.Distance(GetPosition(), player.GetPosition()) < viewDistance)
+        // Người chơi trong viewDistance
+        Vector3 dirToPlayer = (player.GetPosition() - GetPosition()).normalized;
+        if (Vector3.Angle(GetAimDir(), dirToPlayer) < fov / 2f)
         {
-            // Player inside viewDistance
-            Vector3 dirToPlayer = (player.GetPosition() - GetPosition()).normalized;
-            if (Vector3.Angle(GetAimDir(), dirToPlayer) < fov / 2f)
+            // Người chơi trong Field of View
+            RaycastHit2D raycastHit2D = Physics2D.Raycast(GetPosition(), dirToPlayer, viewDistance);
+            if (raycastHit2D.collider != null)
             {
-                // Player inside Field of View
-                RaycastHit2D raycastHit2D = Physics2D.Raycast(GetPosition(), dirToPlayer, viewDistance);
-                if (raycastHit2D.collider != null)
+                // Đánh trúng cái gì đó
+                if (raycastHit2D.collider.gameObject.GetComponent<Player>() != null)
                 {
-                    // Hit something
-                    if (raycastHit2D.collider.gameObject.GetComponent<Player>() != null)
-                    {
-                        // Hàm bắt sự kiện khi người chơi trong tầm nhìn (Chưa làm)
-                        Debug.Log("Hitting");
-                        // Tải scenes mới
-                        UnityEngine.SceneManagement.SceneManager.LoadScene("Menuketthuc");
-                    }
-                    else
-                    {
-                        // Hit something else
-                    }
+                    // Khởi tạo đối tượng đạn và bắn nó
+                    GameObject bulletObject = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+                    Bullet bullet = bulletObject.GetComponent<Bullet>();
+                    bullet.Setup(dirToPlayer);
                 }
-                
-
-            } 
+            }
         }
-        
     }
-
+}
     public Vector3 GetPosition()
     {
         return transform.position;
