@@ -11,7 +11,7 @@ public class testmove : MonoBehaviour
     [SerializeField] private List<float> waitTimeList;
     private int waypointIndex;
 
-public GameObject bulletPrefab;
+    public GameObject bulletPrefab;
     [SerializeField] private Vector3 aimDirection;
     [SerializeField] private Transform pfFieldOfView;
     [SerializeField] private float fov = 90f;
@@ -85,11 +85,12 @@ public GameObject bulletPrefab;
                 }
                 break;
             case State.Moving:
+                
                 Vector3 waypoint = waypointList[waypointIndex];
                 Vector3 waypointDir = (waypoint - transform.position).normalized;
                 lastMoveDir = waypointDir;
-
                 
+
 
                 float distanceBefore = Vector3.Distance(transform.position, waypoint);
                 transform.position = transform.position + waypointDir * speed * Time.deltaTime;
@@ -103,10 +104,10 @@ public GameObject bulletPrefab;
                     waypointIndex = (waypointIndex + 1) % waypointList.Count;
                     state = State.Waiting;
                 }
-
                 //xoay đối tượng theo hướng di chuyển
-                float angle = Mathf.Atan2(waypointDir.y, waypointDir.x);
-                this.transform.rotation = Quaternion.Euler(0f, 0f, angle * Mathf.Rad2Deg - 90f);
+                float angle1 = Mathf.Atan2(waypointDir.y, waypointDir.x);
+                transform.rotation = Quaternion.Euler(0f, 0f, angle1 * Mathf.Rad2Deg - 90f);
+
 
                 break;
                 
@@ -114,30 +115,35 @@ public GameObject bulletPrefab;
         }
 
     }
-private void FindTargetPlayer()
-{
-    if (Vector3.Distance(GetPosition(), player.GetPosition()) < viewDistance)
+    private void FindTargetPlayer()
     {
-        // Người chơi trong viewDistance
-        Vector3 dirToPlayer = (player.GetPosition() - GetPosition()).normalized;
-        if (Vector3.Angle(GetAimDir(), dirToPlayer) < fov / 2f)
+        if (Vector3.Distance(GetPosition(), player.GetPosition()) < viewDistance)
         {
-            // Người chơi trong Field of View
-            RaycastHit2D raycastHit2D = Physics2D.Raycast(GetPosition(), dirToPlayer, viewDistance);
-            if (raycastHit2D.collider != null)
+            // Người chơi trong viewDistance
+            Vector3 dirToPlayer = (player.GetPosition() - GetPosition()).normalized;
+            if (Vector3.Angle(GetAimDir(), dirToPlayer) < fov / 2f)
             {
-                // Đánh trúng cái gì đó
-                if (raycastHit2D.collider.gameObject.GetComponent<Player>() != null)
+                // phát hiện trong Field of View
+                RaycastHit2D raycastHit2D = Physics2D.Raycast(GetPosition(), dirToPlayer, viewDistance);
+                if (raycastHit2D.collider != null)
                 {
-                    // Khởi tạo đối tượng đạn và bắn nó
-                    GameObject bulletObject = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-                    Bullet bullet = bulletObject.GetComponent<Bullet>();
-                    bullet.Setup(dirToPlayer);
+                    // Xác định đó có phải người chơi
+                    if (raycastHit2D.collider.gameObject.GetComponent<Player>() != null)
+                    {
+                        // Khởi tạo đối tượng đạn và bắn nó
+                        GameObject bulletObject = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+                        Bullet bullet = bulletObject.GetComponent<Bullet>();
+                        bullet.Setup(dirToPlayer);
+                        state = State.Busy;
+                    }
+                    else
+                    {
+
+                    }
                 }
             }
         }
     }
-}
     public Vector3 GetPosition()
     {
         return transform.position;
