@@ -7,7 +7,7 @@ using TMPro;
 public class chiakhoa : MonoBehaviour
 {
     public string itemName;
-    public float pickupDistance = 2f;
+    public float pickupDistance = 1f;
     public Transform player;
     public Image itemImage;
     public TextMeshProUGUI itemCountText;

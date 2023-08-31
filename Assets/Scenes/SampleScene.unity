@@ -2320,6 +2320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 732329406}
+  timetoCount: 10
 --- !u!114 &732329406
 MonoBehaviour:
   m_ObjectHideFlags: 0
