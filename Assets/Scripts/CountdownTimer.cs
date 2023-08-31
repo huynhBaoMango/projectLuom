@@ -7,7 +7,7 @@ public class CountdownTimer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI text;
     float timeHientai;
-    float timetoCount = 10f;
+    public float timetoCount = 10f;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +22,7 @@ public class CountdownTimer : MonoBehaviour
         if(timeHientai <= 0)
         {
             timeHientai= 0;
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Menuketthuc");
         }
     }
 }
