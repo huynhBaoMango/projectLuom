@@ -134,12 +134,9 @@ public class testmove : MonoBehaviour
                         GameObject bulletObject = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
                         Bullet bullet = bulletObject.GetComponent<Bullet>();
                         bullet.Setup(dirToPlayer);
-                        state = State.Busy;
+                
                     }
-                    else
-                    {
-
-                    }
+                    
                 }
             }
         }
