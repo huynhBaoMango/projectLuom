@@ -8,9 +8,11 @@ public class Bullet : MonoBehaviour
     public float moveSpeed;
     public float upwardForce; // Thêm biến này để kiểm soát lực hướng lên
     public float downwardForce; // Thêm biến này để kiểm soát lực hướng xuống
+    [SerializeField] testmove kedich;
 
     private void Start()
     {
+        kedich = GetComponent<testmove>();
         // Đặt giá trị mặc định cho moveSpeed, upwardForce và downwardForce
     }
 
@@ -35,13 +37,14 @@ public class Bullet : MonoBehaviour
     {
         this.moveDirection = moveDirection;
     }
-     private void OnTriggerEnter2D(Collider2D collision)
-        {
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
             Player player = collision.GetComponent<Player>();
             if (player != null)
             {
                 // Đánh trúng người chơi
-                UnityEngine.SceneManagement.SceneManager.LoadScene("Menuketthuc");
+                player.dead();
+                
             }
-        }
+    }
 }

@@ -131,10 +131,17 @@ public class testmove : MonoBehaviour
                     if (raycastHit2D.collider.gameObject.GetComponent<Player>() != null)
                     {
                         // Khởi tạo đối tượng đạn và bắn nó
-                        GameObject bulletObject = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-                        Bullet bullet = bulletObject.GetComponent<Bullet>();
-                        bullet.Setup(dirToPlayer);
-                
+                        if (player.isDead)
+                        {
+                            state = State.Moving;
+                        }
+                        else
+                        {
+                            GameObject bulletObject = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+                            Bullet bullet = bulletObject.GetComponent<Bullet>();
+                            bullet.Setup(dirToPlayer);
+                        }
+                         
                     }
                     
                 }
@@ -144,6 +151,11 @@ public class testmove : MonoBehaviour
     public Vector3 GetPosition()
     {
         return transform.position;
+    }
+
+    public void ngungban()
+    {
+        state = State.Busy;
     }
 
 }

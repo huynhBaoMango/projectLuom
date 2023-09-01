@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
+    private Rigidbody2D rb;
     public Animator animator;
     public int isWalking;
+    public bool isDead;
     float tocdo;
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         tocdo = 2;
+        isDead = false;
         animator = GetComponent<Animator>();
         animator.SetInteger("isWalking",0);
     }
@@ -56,10 +59,23 @@ public class Player : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(0, 0, 425);
         }
+
     }
 
     public Vector3 GetPosition()
     {
         return transform.position;
+    }
+    
+    public void dead()
+    {
+        rb.bodyType = RigidbodyType2D.Static;
+        animator.SetTrigger("DeadTrigger");
+        isDead= true;
+    }
+
+    public void restartmenu()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Menuketthuc");
     }
 }
