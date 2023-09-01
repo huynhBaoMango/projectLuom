@@ -7,7 +7,7 @@ public class manager : MonoBehaviour
 {
     public void restart()
     {
-        SceneManager.LoadScene("Luom");
+        SceneManager.LoadScene("Level 1 remake");
     }
     public void Quitgame()
     {

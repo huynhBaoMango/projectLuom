@@ -25,6 +25,6 @@ public class thu : MonoBehaviour
             itemImage.enabled = true; // Kích hoạt hình ảnh của vật phẩm
             itemCountText.text = itemCount.ToString(); // Cập nhật văn bản để hiển thị số lượng vật phẩm còn lại để nhặt lên
             Destroy(gameObject); // Hủy đối tượng trò chơi mà mã nguồn này được gắn vào
-        }
+        }  
     }
 }

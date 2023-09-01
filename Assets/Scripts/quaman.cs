@@ -7,13 +7,13 @@ public class quaman : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (chiakhoa.itemCount > 0)
+            if (thu.itemCount == 0)
             {
-                SceneManager.LoadScene("Luom");
+                SceneManager.LoadScene("Level1");
             }
             else
             {
-                // Người chơi chưa nhặt được key
+                // Người chơi chưa nhặt được đủ 3 key
             }
         }
     }

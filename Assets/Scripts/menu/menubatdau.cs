@@ -7,7 +7,7 @@ public class menubatdau : MonoBehaviour
 {
     public void newgame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
+        SceneManager.LoadScene("level 1 remake");
     }
     public void Quitgame()
     {
