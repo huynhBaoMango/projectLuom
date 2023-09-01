@@ -90,6 +90,7 @@ public class fieldofview : MonoBehaviour
 
         return n;
     }
+
     Vector3 getVectorFromAngle(float angle)
     {
         float angleRad = angle * (Mathf.PI / 180f);

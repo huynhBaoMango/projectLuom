@@ -7,7 +7,7 @@ public class menupaused : MonoBehaviour
 {
      public void resume()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Luom");
+        SceneManager.LoadScene("Level 1 remake");
     }
     public void Quitgame()
     {

@@ -12,9 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/GamePlay/Luom.unity
-    guid: 42cde9026b7f80f48aec4f2631e2ccd1
+    path: Assets/Scenes/menupaused.unity
+    guid: 347cae1e7d1d3ac4881a8c2a0e8be2fb
   - enabled: 1
     path: Assets/Scenes/menuketthuc.unity
     guid: df37c3951ff0fe5408f998310eac6dc4
+  - enabled: 1
+    path: Assets/GamePlay/Level 1 remake.unity
+    guid: 55ea8fa029bbbed4b8a404bd17f33f9b
+  - enabled: 1
+    path: Assets/GamePlay/Level1.unity
+    guid: 899d8104e92be0f4298dd160a8cd054e
   m_configObjects: {}
