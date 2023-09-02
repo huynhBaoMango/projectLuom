@@ -57,6 +57,7 @@ public class testmove : MonoBehaviour
                 break;
             case State.Busy:
                 break;
+            
         }
 
         if (Fieldofview != null)
@@ -110,8 +111,8 @@ public class testmove : MonoBehaviour
 
 
                 break;
-                
 
+            
         }
 
     }
@@ -158,4 +159,6 @@ public class testmove : MonoBehaviour
         state = State.Busy;
     }
 
+
+    
 }

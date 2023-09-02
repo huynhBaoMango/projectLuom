@@ -49,7 +49,7 @@ public class manager : MonoBehaviour
     public void restart()
     {
        isPaused = false; // Đặt lại giá trị của biến isPaused
-       SceneManager.LoadScene("Level 1 remake");
+       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
      
     }
 

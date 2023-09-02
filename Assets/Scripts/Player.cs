@@ -62,6 +62,8 @@ public class Player : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0, 0, 45);
             }
         }
+
+        
     }
 
     void Move(Vector2 direction, float rotationZ)
