@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-public class menuedie : MonoBehaviour
+public class managermenudie : MonoBehaviour
 {
-    // Start is called before the first frame update
     public void restart()
     {
-      
        SceneManager.LoadScene("Level 1 remake");
      
     }
+
     public void Quitgame()
     {
-        Debug.Log("menubatdau");
+        Debug.Log("QUIT");
     }
+
     public void mainmenu()
     {
         SceneManager.LoadScene("menubatdau");
