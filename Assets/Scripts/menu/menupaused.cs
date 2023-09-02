@@ -1,20 +1,79 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class menupaused : MonoBehaviour
+
+public class PauseMenu : MonoBehaviour
 {
-     public void resume()
+    
+    private bool isPaused = false;
+    private string previousScene; // Biến lưu tên scene trước khi tạm dừng.
+    public GameObject pauseMenuUI;
+    public Button pauseButton; // Nút tạm dừng
+
+
+    void Start()
+{
+    previousScene = SceneManager.GetActiveScene().name;
+    pauseButton.onClick.AddListener(TogglePause); // Thêm sự kiện OnClick cho nút tạm dừng/tiếp tục
+}
+
+void TogglePause()
+{
+    if (isPaused)
     {
-        SceneManager.LoadScene("Level 1 remake");
+        ResumeGame();
     }
-    public void Quitgame()
+    else
+    {
+        PauseGame();
+    }
+}
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isPaused)
+            {
+                ResumeGame();
+            }
+            else
+            {
+                PauseGame();
+            }
+        }
+    }
+
+    public void ResumeGame()
+    {
+        isPaused = false;
+        Time.timeScale = 1f;
+        pauseMenuUI.SetActive(false);
+    }
+
+    void PauseGame()
+    {
+        isPaused = true;
+        Time.timeScale = 0f;
+        pauseMenuUI.SetActive(true);
+    }
+
+    public void QuitGame()
     {
         Debug.Log("QUIT");
+        Application.Quit();
     }
-    public void mainmenu()
+
+    public void LoadGameScene()
     {
-        SceneManager.LoadScene("menubatdau");
+        SceneManager.LoadScene("Level 1 remake"); // Thay "Level 1" bằng tên scene game của bạn.
     }
+
+     public void restart()
+     {
+         isPaused = false; // Đặt lại giá trị của biến isPaused
+         SceneManager.LoadScene("Level 1 remake");
+     }
+
 }

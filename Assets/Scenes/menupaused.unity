@@ -1235,7 +1235,7 @@ GameObject:
   - component: {fileID: 2131747020}
   - component: {fileID: 2131747025}
   m_Layer: 5
-  m_Name: gameoverr
+  m_Name: gamepased
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
