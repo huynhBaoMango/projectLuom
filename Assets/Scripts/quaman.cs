@@ -9,7 +9,7 @@ public class quaman : MonoBehaviour
         {
             if (thu.itemCount == 0)
             {
-                SceneManager.LoadScene("Level2");
+                SceneManager.LoadScene("Level 2");
             }
             else
             {
