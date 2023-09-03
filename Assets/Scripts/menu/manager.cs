@@ -49,8 +49,10 @@ public class manager : MonoBehaviour
     public void restart()
     {
        isPaused = false; // Đặt lại giá trị của biến isPaused
-       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-     
+       string mySavedScene = PlayerPrefs.GetString("sceneName");
+       SceneManager.LoadScene(mySavedScene);
+       
+
     }
 
     public void Quitgame()

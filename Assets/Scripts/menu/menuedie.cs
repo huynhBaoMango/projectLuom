@@ -8,13 +8,13 @@ public class menuedie : MonoBehaviour
     // Start is called before the first frame update
     public void restart()
     {
-      
-       SceneManager.LoadScene("Level 1 remake");
+        string mySavedScene = PlayerPrefs.GetString("sceneName");
+        SceneManager.LoadScene(mySavedScene);
      
     }
     public void Quitgame()
     {
-        Debug.Log("menubatdau");
+        Debug.Log("Quit Game");
     }
     public void mainmenu()
     {

@@ -12,7 +12,8 @@ public class menubatdau : MonoBehaviour
 
     public void LoadGame(string levelName)
     {
-        SceneManager.LoadScene("level 1 remake");
+        string mySavedScene = PlayerPrefs.GetString("sceneName");
+        SceneManager.LoadScene(mySavedScene);
     }
 
     public void Quitgame()

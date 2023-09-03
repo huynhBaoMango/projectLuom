@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Player : MonoBehaviour
     private bool isAlive = true; // Biến kiểm tra trạng thái sống/chết
     public bool isDead = false; // Đặt isDead thành public
     float tocdo;
+    public string sceneName;
 
     void Start()
     {
@@ -17,6 +19,8 @@ public class Player : MonoBehaviour
         isAlive = true; // Đảm bảo rằng người chơi ban đầu còn sống
         animator = GetComponent<Animator>();
         animator.SetInteger("isWalking", 0);
+        PlayerPrefs.SetString("sceneName", SceneManager.GetActiveScene().name);
+        PlayerPrefs.Save();
     }
 
     void Update()

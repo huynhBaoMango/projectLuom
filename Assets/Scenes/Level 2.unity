@@ -9273,8 +9273,8 @@ MonoBehaviour:
   - {x: 36.64, y: 4.05, z: 0}
   - {x: 50.49, y: 4.05, z: 0}
   waitTimeList:
-  - 3
-  - 3
+  - 4
+  - 4
   bulletPrefab: {fileID: 945339356}
   aimDirection: {x: 0, y: 0, z: 0}
   pfFieldOfView: {fileID: 1114983529}
@@ -49043,8 +49043,8 @@ MonoBehaviour:
   - {x: 50.49, y: 4.05, z: 0}
   - {x: 36.64, y: 4.05, z: 0}
   waitTimeList:
-  - 3
-  - 3
+  - 4
+  - 4
   bulletPrefab: {fileID: 945339356}
   aimDirection: {x: 0, y: 0, z: 0}
   pfFieldOfView: {fileID: 1114983529}
