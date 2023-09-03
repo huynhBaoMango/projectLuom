@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
         animator.SetInteger("isWalking", 0);
         PlayerPrefs.SetString("sceneName", SceneManager.GetActiveScene().name);
+
         PlayerPrefs.Save();
     }
 

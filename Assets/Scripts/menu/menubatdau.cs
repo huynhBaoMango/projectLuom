@@ -7,10 +7,10 @@ public class menubatdau : MonoBehaviour
 {
     public void newgame()
     {
-        SceneManager.LoadScene("level 1 remake");
+        SceneManager.LoadScene("Luom");
     }
 
-    public void LoadGame(string levelName)
+    public void LoadGame()
     {
         string mySavedScene = PlayerPrefs.GetString("sceneName");
         SceneManager.LoadScene(mySavedScene);
