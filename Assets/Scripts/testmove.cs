@@ -17,7 +17,9 @@ public class testmove : MonoBehaviour
     [SerializeField] private float fov;
     [SerializeField] private float viewDistance;
     [SerializeField] private Player player;
+    [SerializeField] private AudioSource shooting;
     private fieldofview Fieldofview;
+
 
 
     private enum State
@@ -136,10 +138,11 @@ public class testmove : MonoBehaviour
                     // Xác định đó có phải người chơi
                     if (raycastHit2D.collider.gameObject.GetComponent<Player>() != null)
                     {
-                        // Khởi tạo đối tượng đạn và bắn nó
+                        // Khởi tạo đối tượng đạn và bắn
                         if (player.isDead)
                         {
                             state = State.Moving;
+                            shooting.Play();
                         }
                         else
                         {

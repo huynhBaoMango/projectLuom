@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     float tocdo;
     public string sceneName;
 
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -30,42 +31,54 @@ public class Player : MonoBehaviour
         {
             animator.SetInteger("isWalking", 0);
 
-            if (Input.GetKey(KeyCode.RightArrow)){
-                // Xử lý di chuyển bên phải
-                Move(Vector2.right, 270);
+            float moveX = 0f;
+            float moveY = 0f;
+
+            if (Input.GetKey(KeyCode.D))
+            {
+                moveX = +1f;
+                transform.rotation = Quaternion.Euler(0, 0, 270);
+                animator.SetInteger("isWalking", 1);
             }
-            if (Input.GetKey(KeyCode.LeftArrow)){
-                // Xử lý di chuyển bên trái
-                Move(Vector2.left, 90);
+            if (Input.GetKey(KeyCode.A)){
+                moveX = -1f;
+                transform.rotation = Quaternion.Euler(0, 0, 90);
+                animator.SetInteger("isWalking", 1);
             }
-            if (Input.GetKey(KeyCode.UpArrow)){
-                // Xử lý di chuyển lên trên
-                Move(Vector2.up, 0);
+            if (Input.GetKey(KeyCode.W)){
+                moveY = +1f;
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+                animator.SetInteger("isWalking", 1);
             }
-            if (Input.GetKey(KeyCode.DownArrow)){
-                // Xử lý di chuyển xuống dưới
-                Move(Vector2.down, 180);
+            if (Input.GetKey(KeyCode.S)){
+                moveY= -1f;
+                transform.rotation = Quaternion.Euler(0, 0, 180);
+                animator.SetInteger("isWalking", 1);
             }
-            if (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.W))
             {
                 // Xử lý góc chuyển động khi di chuyển cùng lúc 2 phím
                 transform.rotation = Quaternion.Euler(0, 0, 315);
             }
-            if (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.DownArrow))
+            if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.S))
             {
                 // Xử lý góc chuyển động khi di chuyển cùng lúc 2 phím
                 transform.rotation = Quaternion.Euler(0, 0, 225);
             }
-            if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.LeftArrow))
+            if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
             {
                 // Xử lý góc chuyển động khi di chuyển cùng lúc 2 phím
                 transform.rotation = Quaternion.Euler(0, 0, 135);
             }
-            if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.W))
             {
                 // Xử lý góc chuyển động khi di chuyển cùng lúc 2 phím
                 transform.rotation = Quaternion.Euler(0, 0, 45);
             }
+
+            Vector3 moveDir = new Vector3(moveX, moveY).normalized;
+            transform.position += moveDir * tocdo * Time.deltaTime;
+
         }
 
         
@@ -99,4 +112,6 @@ public class Player : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Menuketthuc");
     }
+
+
 }
