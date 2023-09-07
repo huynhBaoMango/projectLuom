@@ -16,6 +16,11 @@ public class thu : MonoBehaviour
     // Biến tĩnh để theo dõi số lượng vật phẩm còn lại để nhặt lên
     public static int itemCount = 3;
 
+    void Awake()
+    {
+        itemCount = 3; // Đặt lại itemCount về 3 mỗi khi Scene được tải
+    }
+
     void Update()
     {
         // Kiểm tra xem người chơi có trong khoảng cách pickupDistance của vật phẩm và có bất kỳ vật phẩm nào còn lại để nhặt lên không

@@ -46,14 +46,14 @@ public class manager : MonoBehaviour
         isPaused = false; // Đánh dấu trò chơi không còn tạm dừng
     }
 
-    public void restart()
-    {
-       isPaused = false; // Đặt lại giá trị của biến isPaused
-       string mySavedScene = PlayerPrefs.GetString("sceneName");
-       SceneManager.LoadScene(mySavedScene);
-       
+  public void restart()
+{
+    isPaused = false; // Đặt lại giá trị của biến isPaused
+    Time.timeScale = 1f; // Khôi phục lại thời gian trong trò chơi
+    string mySavedScene = PlayerPrefs.GetString("sceneName");
+    SceneManager.LoadScene(mySavedScene);
+}
 
-    }
 
     public void Quitgame()
     {
