@@ -67,13 +67,13 @@ void TogglePause()
 
     public void LoadGameScene()
     {
-        SceneManager.LoadScene("Level 1 remake"); // Thay "Level 1" bằng tên scene game của bạn.
+        SceneManager.LoadScene("previousScene"); // Thay "Level 1" bằng tên scene game của bạn.
     }
 
      public void restart()
      {
          isPaused = false; // Đặt lại giá trị của biến isPaused
-         SceneManager.LoadScene("Level 1 remake");
+         SceneManager.LoadScene("previousScene");
      }
 
 }

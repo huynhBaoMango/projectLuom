@@ -11,12 +11,11 @@ public class fieldofview : MonoBehaviour
     private float startingAngle;
     private float viewDistance;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         mesh = new Mesh();
-        fov = 90f;
-        origin = Vector3.zero;
         GetComponent<MeshFilter>().mesh = mesh;
+        origin = Vector3.zero;
     }
 
         

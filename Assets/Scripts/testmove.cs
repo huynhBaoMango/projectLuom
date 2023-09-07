@@ -14,8 +14,8 @@ public class testmove : MonoBehaviour
     public GameObject bulletPrefab;
     [SerializeField] private Vector3 aimDirection;
     [SerializeField] private Transform pfFieldOfView;
-    [SerializeField] private float fov = 90f;
-    [SerializeField] private float viewDistance = 50f;
+    [SerializeField] private float fov;
+    [SerializeField] private float viewDistance;
     [SerializeField] private Player player;
     private fieldofview Fieldofview;
 
@@ -38,15 +38,13 @@ public class testmove : MonoBehaviour
         waitTimer = waitTimeList[0];
         lastMoveDir = aimDirection;
 
-        Fieldofview = Instantiate(pfFieldOfView, null).GetComponent<fieldofview>();
-        Fieldofview.SetFoV(fov);
-        Fieldofview.SetViewDistance(viewDistance);
+        fillFOV(); // khởi tạo fov
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
         switch (state)
         {
             default:
@@ -66,6 +64,13 @@ public class testmove : MonoBehaviour
             Fieldofview.setAimDirection(GetAimDir());
         }
 
+    }
+
+    public void fillFOV()
+    {
+        Fieldofview = Instantiate(pfFieldOfView, null).GetComponent<fieldofview>();
+        Fieldofview.SetFoV(fov);
+        Fieldofview.SetViewDistance(viewDistance);
     }
     
     public Vector3 GetAimDir()

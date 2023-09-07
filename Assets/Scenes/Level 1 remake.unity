@@ -3575,6 +3575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flspeed: 2
   target: {fileID: 565535495}
+  extraFrustumCullRange: 150
 --- !u!1 &832013004
 GameObject:
   m_ObjectHideFlags: 0
