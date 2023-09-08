@@ -10,7 +10,7 @@ public class chosan : MonoBehaviour
     [SerializeField] private List<Vector3> waypointList;
     [SerializeField] private List<float> waitTimeList;
     private int waypointIndex;
-
+    public Animator animator;
     [SerializeField] private Vector3 aimDirection;
     [SerializeField] private Transform pfFieldOfView;
     [SerializeField] private float fov;
@@ -38,6 +38,7 @@ public class chosan : MonoBehaviour
     void Start()
     {
         state = State.Waiting;
+        animator = GetComponent<Animator>();
         waitTimer = waitTimeList[0];
         lastMoveDir = aimDirection;
 
@@ -87,6 +88,7 @@ public class chosan : MonoBehaviour
         switch (state)
         {
             case State.Waiting:
+                animator.SetBool("isRunning", false);
                 waitTimer -= Time.deltaTime;
                 if (waitTimer <= 0f)
                 {
@@ -94,7 +96,7 @@ public class chosan : MonoBehaviour
                 }
                 break;
             case State.Moving:
-                
+                animator.SetBool("isRunning", true);
                 Vector3 waypoint = waypointList[waypointIndex];
                 Vector3 waypointDir = (waypoint - transform.position).normalized;
                 lastMoveDir = waypointDir;
@@ -148,6 +150,7 @@ public class chosan : MonoBehaviour
                         if (player.isMoving)
                         {
                             //chạy đến người chơi
+                            animator.SetBool("isRunning", true);
                             transform.position = transform.position + dirToPlayer * speed*4 * Time.deltaTime;
                             float angle1 = Mathf.Atan2(dirToPlayer.y, dirToPlayer.x);
                             transform.rotation = Quaternion.Euler(0f, 0f, angle1 * Mathf.Rad2Deg - 90f);
@@ -156,6 +159,7 @@ public class chosan : MonoBehaviour
                                 player.dead();
                                 lookplayer.Stop();
                                 bite.Play();
+                                state = State.Busy;
                             }
                         }
 

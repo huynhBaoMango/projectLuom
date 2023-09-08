@@ -142,7 +142,6 @@ public class testmove : MonoBehaviour
                         if (player.isDead)
                         {
                             state = State.Moving;
-                            shooting.Play();
                         }
                         else
                         {
@@ -150,6 +149,10 @@ public class testmove : MonoBehaviour
                             Bullet bullet = bulletObject.GetComponent<Bullet>();
                             bullet.Setup(dirToPlayer);
                             player.dead();
+                            if (!shooting.isPlaying)
+                            {
+                                shooting.Play();
+                            }
                         }
                          
                     }
