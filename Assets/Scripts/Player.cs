@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public bool isDead = false; // Đặt isDead thành public
     float tocdo;
     public string sceneName;
+    public bool isMoving;
 
 
     void Start()
@@ -27,6 +28,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        isMoving= false;
         if (isAlive && !isDead) // Kiểm tra trạng thái sống/chết
         {
             animator.SetInteger("isWalking", 0);
@@ -39,21 +41,25 @@ public class Player : MonoBehaviour
                 moveX = +1f;
                 transform.rotation = Quaternion.Euler(0, 0, 270);
                 animator.SetInteger("isWalking", 1);
+                isMoving= true;
             }
             if (Input.GetKey(KeyCode.A)){
                 moveX = -1f;
                 transform.rotation = Quaternion.Euler(0, 0, 90);
                 animator.SetInteger("isWalking", 1);
+                isMoving = true;
             }
             if (Input.GetKey(KeyCode.W)){
                 moveY = +1f;
                 transform.rotation = Quaternion.Euler(0, 0, 0);
                 animator.SetInteger("isWalking", 1);
+                isMoving = true;
             }
             if (Input.GetKey(KeyCode.S)){
                 moveY= -1f;
                 transform.rotation = Quaternion.Euler(0, 0, 180);
                 animator.SetInteger("isWalking", 1);
+                isMoving = true;
             }
             if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.W))
             {
