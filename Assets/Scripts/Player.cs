@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+
+    public GameObject pfminirock;
+
     private Rigidbody2D rb;
     public Animator animator;
     private bool isAlive = true; // Biến kiểm tra trạng thái sống/chết
@@ -12,7 +15,7 @@ public class Player : MonoBehaviour
     float tocdo;
     public string sceneName;
     public bool isMoving;
-
+    public bool hasRock = false;
 
     void Start()
     {
@@ -60,6 +63,14 @@ public class Player : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0, 0, 180);
                 animator.SetInteger("isWalking", 1);
                 isMoving = true;
+            }
+            if (Input.GetKey(KeyCode.Mouse0))
+            {
+                if (hasRock)
+                {
+                    hasRock= false;
+                    throwrock();
+                }
             }
             if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.W))
             {
@@ -119,5 +130,15 @@ public class Player : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("Menuketthuc");
     }
 
+    private void throwrock()
+    {
+        GameObject rockObject = Instantiate(pfminirock, transform.position, Quaternion.identity);
+        cucda2 minirock = rockObject.GetComponent<cucda2>();
+    }
+
+    private void deleterock()
+    {
+
+    }
 
 }

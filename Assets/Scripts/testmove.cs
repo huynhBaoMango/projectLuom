@@ -41,7 +41,7 @@ public class testmove : MonoBehaviour
         lastMoveDir = aimDirection;
 
         fillFOV(); // khởi tạo fov
-        
+
     }
 
     // Update is called once per frame
@@ -57,7 +57,7 @@ public class testmove : MonoBehaviour
                 break;
             case State.Busy:
                 break;
-            
+
         }
 
         if (Fieldofview != null)
@@ -74,7 +74,7 @@ public class testmove : MonoBehaviour
         Fieldofview.SetFoV(fov);
         Fieldofview.SetViewDistance(viewDistance);
     }
-    
+
     public Vector3 GetAimDir()
     {
         return lastMoveDir;
@@ -82,7 +82,7 @@ public class testmove : MonoBehaviour
 
     public void HandleMovement()
     {
-        
+
         switch (state)
         {
             case State.Waiting:
@@ -93,11 +93,11 @@ public class testmove : MonoBehaviour
                 }
                 break;
             case State.Moving:
-                
+
                 Vector3 waypoint = waypointList[waypointIndex];
                 Vector3 waypointDir = (waypoint - transform.position).normalized;
                 lastMoveDir = waypointDir;
-                
+
 
 
                 float distanceBefore = Vector3.Distance(transform.position, waypoint);
@@ -119,10 +119,11 @@ public class testmove : MonoBehaviour
 
                 break;
 
-            
+
         }
 
     }
+
     private void FindTargetPlayer()
     {
         if (Vector3.Distance(GetPosition(), player.GetPosition()) < viewDistance)
@@ -154,12 +155,13 @@ public class testmove : MonoBehaviour
                                 shooting.Play();
                             }
                         }
-                         
+
                     }
-                    
+
                 }
             }
         }
+        FindNearRock();
     }
     public Vector3 GetPosition()
     {
@@ -172,5 +174,35 @@ public class testmove : MonoBehaviour
     }
 
 
-    
+    private void FindNearRock()
+    {
+        if(GameObject.FindWithTag("minirock") != null)
+        {
+            Vector3 rockPoint = GameObject.FindWithTag("minirock").transform.position;
+            if (Vector3.Distance(GetPosition(), rockPoint) < viewDistance)
+            {
+                // Người chơi trong viewDistance
+                Vector3 dirToRock = (rockPoint - GetPosition()).normalized;
+                lastMoveDir = dirToRock;
+                transform.position = transform.position + dirToRock * speed * Time.deltaTime;
+                if(Vector3.Distance(GetPosition(), rockPoint) < 1f) 
+                {
+                    Destroy(GameObject.FindWithTag("minirock"));
+                    waitTimer= 3;
+                    state = State.Waiting;
+                }
+                RaycastHit2D raycastHit2D = Physics2D.Raycast(GetPosition(), dirToRock, viewDistance);
+                if (raycastHit2D.collider != null)
+                {
+                    if(raycastHit2D.collider.gameObject.GetComponent<cucda2>() == null)
+                    {
+                        Destroy(GameObject.FindWithTag("minirock"));
+                        waitTimer = 3;
+                        state = State.Waiting;
+                    }
+                }
+            }
+        }
+        
+    }
 }
