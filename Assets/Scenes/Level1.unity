@@ -539,6 +539,7 @@ MonoBehaviour:
   itemName: thu
   pickupDistance: 1
   player: {fileID: 1285384681}
+  pickup: {fileID: 8300000, guid: a56f5378000b5114aaa56dc45d20dc2d, type: 3}
   itemImage: {fileID: 675561302}
   itemCountText: {fileID: 1031469682}
 --- !u!212 &192096121
@@ -1307,6 +1308,7 @@ MonoBehaviour:
   fov: 90
   viewDistance: 5
   player: {fileID: 1285384677}
+  shooting: {fileID: 0}
 --- !u!212 &610275528
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1414,6 +1416,7 @@ MonoBehaviour:
   fov: 90
   viewDistance: 5
   player: {fileID: 1285384677}
+  shooting: {fileID: 0}
 --- !u!212 &667722556
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2102,6 +2105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flspeed: 2
   target: {fileID: 1285384681}
+  extraFrustumCullRange: 10
 --- !u!1 &1262318195
 GameObject:
   m_ObjectHideFlags: 0
@@ -125165,6 +125169,7 @@ MonoBehaviour:
   itemName: thu
   pickupDistance: 1
   player: {fileID: 1285384681}
+  pickup: {fileID: 8300000, guid: a56f5378000b5114aaa56dc45d20dc2d, type: 3}
   itemImage: {fileID: 675561302}
   itemCountText: {fileID: 1031469682}
 --- !u!212 &1427642510
@@ -125294,6 +125299,7 @@ MonoBehaviour:
   itemName: thu
   pickupDistance: 1
   player: {fileID: 1285384681}
+  pickup: {fileID: 8300000, guid: a56f5378000b5114aaa56dc45d20dc2d, type: 3}
   itemImage: {fileID: 675561302}
   itemCountText: {fileID: 1031469682}
 --- !u!212 &1434354317
@@ -145573,6 +145579,7 @@ MonoBehaviour:
   fov: 90
   viewDistance: 5
   player: {fileID: 1285384677}
+  shooting: {fileID: 0}
 --- !u!212 &2007167560
 SpriteRenderer:
   m_ObjectHideFlags: 0

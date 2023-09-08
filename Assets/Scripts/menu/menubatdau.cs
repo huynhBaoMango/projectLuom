@@ -5,10 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class menubatdau : MonoBehaviour
 {
-    public void newgame()
-    {
-        SceneManager.LoadScene("Luom");
-    }
+    
 
     public void LoadGame()
     {
