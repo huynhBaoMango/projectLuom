@@ -33,7 +33,7 @@ public class thu : MonoBehaviour
             itemCountText.text = itemCount.ToString(); // Cập nhật văn bản để hiển thị số lượng vật phẩm còn lại để nhặt lên
             AudioSource.PlayClipAtPoint(pickup,transform.position);
             Destroy(gameObject); // Hủy đối tượng trò chơi mà mã nguồn này được gắn vào
-            
+
         }  
     }
 }
