@@ -13,6 +13,18 @@ public class cucda3 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (GameObject.FindWithTag("enemy") != null)
+        {
+
+            if (Vector3.Distance(transform.position, GameObject.FindWithTag("enemy").transform.position) < 3)
+            {
+                
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+
+        }
     }
 }

@@ -54,8 +54,10 @@ public class testmove : MonoBehaviour
             case State.Moving:
                 HandleMovement();
                 FindTargetPlayer();
+                FindNearRock();
                 break;
             case State.Busy:
+                comeToRock();
                 break;
 
         }
@@ -101,7 +103,11 @@ public class testmove : MonoBehaviour
 
 
                 float distanceBefore = Vector3.Distance(transform.position, waypoint);
-                transform.position = transform.position + waypointDir * speed * Time.deltaTime;
+                if(state != State.Busy)
+                {
+                    transform.position = transform.position + waypointDir * speed * Time.deltaTime;
+                }
+                
                 float distanceAfter = Vector3.Distance(transform.position, waypoint);
 
                 float arriveDistance = .1f;
@@ -161,7 +167,7 @@ public class testmove : MonoBehaviour
                 }
             }
         }
-        FindNearRock();
+
     }
     public Vector3 GetPosition()
     {
@@ -178,25 +184,34 @@ public class testmove : MonoBehaviour
     {
         if(GameObject.FindWithTag("minirock") != null)
         {
-            state = State.Moving;
-            Debug.Log("F");
-            Vector3 rockPoint = GameObject.FindWithTag("minirock").transform.position;
-            if (Vector3.Distance(GetPosition(), rockPoint) < viewDistance)
+            if (Vector3.Distance(GetPosition(), GameObject.FindWithTag("minirock").transform.position) < viewDistance)
             {
-                
-                Vector3 dirToRock = (rockPoint - GetPosition()).normalized;
-                lastMoveDir = dirToRock;
-                transform.position = transform.position + dirToRock * speed * Time.deltaTime;
-                float angle1 = Mathf.Atan2(dirToRock.y, dirToRock.x);
-                transform.rotation = Quaternion.Euler(0f, 0f, angle1 * Mathf.Rad2Deg - 90f);
-                if (Vector3.Distance(GetPosition(), rockPoint) < 0.1f) 
-                {
-                    Destroy(GameObject.FindWithTag("minirock"));
-                    waitTimer= 3;
-                    state = State.Waiting;
-                }
+                state = State.Busy;
             }
+            
         }
         
     }
+
+    private void comeToRock()
+    {
+        Vector3 rockPoint = GameObject.FindWithTag("minirock").transform.position;
+        if (Vector3.Distance(GetPosition(), rockPoint) < viewDistance)
+        {
+
+            Vector3 dirToRock = (rockPoint - GetPosition()).normalized;
+            lastMoveDir = dirToRock;
+            transform.position = transform.position + dirToRock * speed*2 * Time.deltaTime;
+            float angle1 = Mathf.Atan2(dirToRock.y, dirToRock.x);
+            transform.rotation = Quaternion.Euler(0f, 0f, angle1 * Mathf.Rad2Deg - 90f);
+            if (Vector3.Distance(GetPosition(), rockPoint) < 0.1f)
+            {
+                Destroy(GameObject.FindWithTag("minirock"));
+                //thêm hàm xoá biểu tượng trên camera vào đây
+                waitTimer = 3;
+                state = State.Waiting;
+            }
+        }
+    }
+
 }

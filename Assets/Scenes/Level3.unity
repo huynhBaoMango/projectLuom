@@ -598,7 +598,7 @@ GameObject:
   - component: {fileID: 291728735}
   m_Layer: 0
   m_Name: enemy (6)
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1007,7 +1007,7 @@ GameObject:
   - component: {fileID: 395847755}
   m_Layer: 0
   m_Name: enemy (4)
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1439,7 +1439,7 @@ GameObject:
   - component: {fileID: 559826786}
   m_Layer: 0
   m_Name: enemy (1)
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1754,7 +1754,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 12.506, y: 7.637, z: -88.336}
 --- !u!1 &656746777
 GameObject:
@@ -2190,7 +2190,7 @@ GameObject:
   - component: {fileID: 747446589}
   m_Layer: 0
   m_Name: enemy (9)
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2835,7 +2835,7 @@ GameObject:
   - component: {fileID: 1164134315}
   m_Layer: 0
   m_Name: enemy (5)
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3124,7 +3124,7 @@ GameObject:
   - component: {fileID: 1302251423}
   m_Layer: 0
   m_Name: enemy (3)
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9623,7 +9623,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -9689,7 +9689,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1427379911}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.35, y: 4.9, z: 0}
+  m_LocalPosition: {x: 11.21, y: 3.56, z: 0}
   m_LocalScale: {x: 0.9024, y: 0.8698, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9775,7 +9775,7 @@ GameObject:
   - component: {fileID: 1496005249}
   m_Layer: 0
   m_Name: enemy (7)
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50687,7 +50687,7 @@ GameObject:
   - component: {fileID: 1856986888}
   m_Layer: 0
   m_Name: enemy (8)
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51171,6 +51171,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3069062775615264569, guid: 11b629fb018606745935a8a1b847e5f4, type: 3}
+      propertyPath: m_TagString
+      value: enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11b629fb018606745935a8a1b847e5f4, type: 3}
 --- !u!1001 &7921860226997018634
@@ -51182,7 +51186,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7921860227910965714, guid: c22778dedb98c7141ab7e2a0842f3ada, type: 3}
       propertyPath: m_RootOrder
-      value: 20
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 7921860227910965714, guid: c22778dedb98c7141ab7e2a0842f3ada, type: 3}
       propertyPath: m_LocalPosition.x

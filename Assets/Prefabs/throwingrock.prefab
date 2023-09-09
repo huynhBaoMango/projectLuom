@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 457828729088651183}
   - component: {fileID: 3872395062763692865}
   - component: {fileID: 9139840809110425404}
-  - component: {fileID: 4311968558442938778}
+  - component: {fileID: 8218750046253391277}
   m_Layer: 0
   m_Name: throwingrock
   m_TagString: Untagged
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 6ecbbdb464437b646b3ff69349f4f1a0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -121,7 +121,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &4311968558442938778
+--- !u!58 &8218750046253391277
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,6 +134,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.020497322, y: 0}
   serializedVersion: 2
-  m_Radius: 0.32
+  m_Radius: 0.05353594
