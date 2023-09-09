@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class cucda2 : MonoBehaviour
 {
+    public GameObject pfminirock;
     Vector3 mousePosition;
     float speed = 5f;
     // Start is called before the first frame update
@@ -17,8 +18,14 @@ public class cucda2 : MonoBehaviour
     {
         if(speed> 0)
         {
-            speed -= 0.04f;
+            speed -= 0.01f;
             transform.position = Vector2.MoveTowards(transform.position, mousePosition, speed * Time.deltaTime);
+        }
+        else
+        {
+            GameObject rockObject = Instantiate(pfminirock, transform.position, Quaternion.identity);
+            cucda3 throwingrock = rockObject.GetComponent<cucda3>();
+            Destroy(gameObject);
         }
     }
 

@@ -178,28 +178,22 @@ public class testmove : MonoBehaviour
     {
         if(GameObject.FindWithTag("minirock") != null)
         {
+            state = State.Moving;
+            Debug.Log("F");
             Vector3 rockPoint = GameObject.FindWithTag("minirock").transform.position;
             if (Vector3.Distance(GetPosition(), rockPoint) < viewDistance)
             {
-                // Người chơi trong viewDistance
+                
                 Vector3 dirToRock = (rockPoint - GetPosition()).normalized;
                 lastMoveDir = dirToRock;
                 transform.position = transform.position + dirToRock * speed * Time.deltaTime;
-                if(Vector3.Distance(GetPosition(), rockPoint) < 1f) 
+                float angle1 = Mathf.Atan2(dirToRock.y, dirToRock.x);
+                transform.rotation = Quaternion.Euler(0f, 0f, angle1 * Mathf.Rad2Deg - 90f);
+                if (Vector3.Distance(GetPosition(), rockPoint) < 0.1f) 
                 {
                     Destroy(GameObject.FindWithTag("minirock"));
                     waitTimer= 3;
                     state = State.Waiting;
-                }
-                RaycastHit2D raycastHit2D = Physics2D.Raycast(GetPosition(), dirToRock, viewDistance);
-                if (raycastHit2D.collider != null)
-                {
-                    if(raycastHit2D.collider.gameObject.GetComponent<cucda2>() == null)
-                    {
-                        Destroy(GameObject.FindWithTag("minirock"));
-                        waitTimer = 3;
-                        state = State.Waiting;
-                    }
                 }
             }
         }

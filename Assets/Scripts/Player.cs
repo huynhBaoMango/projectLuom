@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
 
-    public GameObject pfminirock;
+    public GameObject pfthrowingrock;
 
     private Rigidbody2D rb;
     public Animator animator;
@@ -132,13 +132,9 @@ public class Player : MonoBehaviour
 
     private void throwrock()
     {
-        GameObject rockObject = Instantiate(pfminirock, transform.position, Quaternion.identity);
-        cucda2 minirock = rockObject.GetComponent<cucda2>();
+        GameObject rockObject = Instantiate(pfthrowingrock, transform.position, Quaternion.identity);
+        cucda2 throwingrock = rockObject.GetComponent<cucda2>();
     }
 
-    private void deleterock()
-    {
-
-    }
 
 }
