@@ -9,6 +9,8 @@ TagManager:
   - vatthe
   - player
   - rock
+  - enemyFOV
+  - enemyfov
   layers:
   - Default
   - TransparentFX
