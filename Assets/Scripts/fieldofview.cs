@@ -9,7 +9,7 @@ public class fieldofview : MonoBehaviour
     private float fov;
     private Vector3 origin;
     private float startingAngle;
-    private float viewDistance;
+    public float viewDistance;
     // Start is called before the first frame update
     void Awake()
     {
@@ -18,12 +18,12 @@ public class fieldofview : MonoBehaviour
         origin = Vector3.zero;
     }
 
-        
+
 
     // Update is called once per frame
     void LateUpdate()
     {
-       
+
         int rayCount = 50;
         float angle = startingAngle;
         float angleIncrease = fov / rayCount;
@@ -71,7 +71,7 @@ public class fieldofview : MonoBehaviour
         mesh.triangles = triangles;
     }
 
-    
+
 
     public void setOrigin(Vector3 origin)
     {
@@ -105,5 +105,10 @@ public class fieldofview : MonoBehaviour
     public void SetViewDistance(float viewDistance)
     {
         this.viewDistance = viewDistance;
+    }
+
+    public void RainViewDistance()
+    {
+        this.viewDistance -= 1;
     }
 }
