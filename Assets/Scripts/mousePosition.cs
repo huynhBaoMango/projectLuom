@@ -10,7 +10,7 @@ public class mousePosition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mouseWorldPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+      mouseWorldPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         mouseWorldPosition.z = 0f;
         transform.position = mouseWorldPosition;
     }

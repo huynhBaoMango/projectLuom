@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class cucda2 : MonoBehaviour
 {
-    
     public GameObject pfminirock;
-    Vector3 mousePosition;
-    float speed = 5f;
+    private Vector3 mousePosition;
+    private float speed = 5f;
     private Rigidbody2D rb;
-    Vector3 lastVelocity;
+    private bool isMoving = true;
 
     void Awake()
     {
@@ -18,31 +17,32 @@ public class cucda2 : MonoBehaviour
 
     void Start()
     {
-        mousePosition = GameObject.Find("mousePos").transform.position;
+        // Lấy vị trí ban đầu của mousePosition
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        lastVelocity = rb.velocity;
-        if (speed> 0)
+        if (isMoving)
         {
-            speed -= 0.01f;
-            transform.position = Vector2.MoveTowards(transform.position, mousePosition, speed * Time.deltaTime);
-        }
-        else
-        {
-            GameObject rockObject = Instantiate(pfminirock, transform.position, Quaternion.identity);
-            cucda3 minirock = rockObject.GetComponent<cucda3>();
-            Destroy(gameObject);
+            if (speed > 0)
+            {
+                speed -= 0.01f;
+                // Di chuyển đối tượng theo hướng của mousePosition
+                transform.position = Vector2.MoveTowards(transform.position, mousePosition, speed * Time.deltaTime);
+            }
+            else
+            {
+                isMoving = false;
+                // Tạo một đối tượng mới từ prefab pfminirock
+                // Thêm một offset vào vị trí khởi tạo của đá
+                Vector3 rockPosition = transform.position + new Vector3(0, 1, 0);
+                GameObject rockObject = Instantiate(pfminirock, rockPosition, Quaternion.identity);
+                Rigidbody2D rockRigidbody = rockObject.GetComponent<Rigidbody2D>();
+            
+                // Hủy GameObject hiện tại
+                Destroy(gameObject);
+            }
         }
     }
-    private void OnCollisionEnter2D(Collision2D coll)
-    {
-        var speed = lastVelocity.magnitude;
-        var direction = Vector3.Reflect(lastVelocity.normalized, coll.contacts[0].normal);
-
-        rb.velocity = direction * Mathf.Max(speed, 0f);
-    }
-
 }

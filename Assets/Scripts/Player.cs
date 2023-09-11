@@ -5,9 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-
     public GameObject pfthrowingrock;
-
     private Rigidbody2D rb;
     public Animator animator;
     private bool isAlive = true; // Biến kiểm tra trạng thái sống/chết
@@ -97,8 +95,12 @@ public class Player : MonoBehaviour
             transform.position += moveDir * tocdo * Time.deltaTime;
 
         }
-
-        
+    
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            throwrock();
+        }
+     
     }
 
     void Move(Vector2 direction, float rotationZ)
@@ -130,11 +132,19 @@ public class Player : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("Menuketthuc");
     }
 
-    private void throwrock()
+   private void throwrock()
+{
+   // Thêm một offset vào vị trí khởi tạo của đá
+    Vector3 rockPosition = transform.position + new Vector3(0, 1, 0);
+    GameObject rockObject = Instantiate(pfthrowingrock, rockPosition, Quaternion.identity);
+    Rigidbody2D rockRigidbody = rockObject.GetComponent<Rigidbody2D>();
+
+    // Kiểm tra xem có Rigidbody2D trên đối tượng pfthrowingrock
+    if (rockRigidbody != null)
     {
-        GameObject rockObject = Instantiate(pfthrowingrock, transform.position, Quaternion.identity);
-        cucda2 throwingrock = rockObject.GetComponent<cucda2>();
+        // Áp dụng lực văng cho đối tượng pfthrowingrock
+        Vector2 direction = (/*điểm muốn ném đến*/ - transform.position).normalized;
+        rockRigidbody.velocity = direction * 10f /*lực văng mong muốn*/;
     }
-
-
+}
 }

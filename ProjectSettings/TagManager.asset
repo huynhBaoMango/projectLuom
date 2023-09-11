@@ -6,6 +6,9 @@ TagManager:
   tags:
   - minirock
   - enemy
+  - vatthe
+  - player
+  - rock
   layers:
   - Default
   - TransparentFX
