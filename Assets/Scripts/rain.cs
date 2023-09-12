@@ -5,7 +5,7 @@ using UnityEngine;
 public class rain : MonoBehaviour
 {
     GameObject rainGenerator;
-    private float waitTime = 30;
+    private float waitTime = 5;
     private float eventTime = 7;
     [SerializeField] fieldofview enemyFov;
     // Start is called before the first frame update

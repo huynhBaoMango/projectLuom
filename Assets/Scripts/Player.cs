@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        isMoving= false;
+        isMoving = false;
         if (isAlive && !isDead) // Kiểm tra trạng thái sống/chết
         {
             animator.SetInteger("isWalking", 0);
@@ -42,22 +42,25 @@ public class Player : MonoBehaviour
                 moveX = +1f;
                 transform.rotation = Quaternion.Euler(0, 0, 270);
                 animator.SetInteger("isWalking", 1);
-                isMoving= true;
+                isMoving = true;
             }
-            if (Input.GetKey(KeyCode.A)){
+            if (Input.GetKey(KeyCode.A))
+            {
                 moveX = -1f;
                 transform.rotation = Quaternion.Euler(0, 0, 90);
                 animator.SetInteger("isWalking", 1);
                 isMoving = true;
             }
-            if (Input.GetKey(KeyCode.W)){
+            if (Input.GetKey(KeyCode.W))
+            {
                 moveY = +1f;
                 transform.rotation = Quaternion.Euler(0, 0, 0);
                 animator.SetInteger("isWalking", 1);
                 isMoving = true;
             }
-            if (Input.GetKey(KeyCode.S)){
-                moveY= -1f;
+            if (Input.GetKey(KeyCode.S))
+            {
+                moveY = -1f;
                 transform.rotation = Quaternion.Euler(0, 0, 180);
                 animator.SetInteger("isWalking", 1);
                 isMoving = true;
@@ -66,7 +69,7 @@ public class Player : MonoBehaviour
             {
                 if (hasRock)
                 {
-                    hasRock= false;
+                    hasRock = false;
                     throwrock();
                 }
             }
@@ -95,12 +98,12 @@ public class Player : MonoBehaviour
             transform.position += moveDir * tocdo * Time.deltaTime;
 
         }
-    
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             throwrock();
         }
-     
+
     }
 
     void Move(Vector2 direction, float rotationZ)
@@ -132,19 +135,19 @@ public class Player : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("Menuketthuc");
     }
 
-   private void throwrock()
-{
-   // Thêm một offset vào vị trí khởi tạo của đá
-    Vector3 rockPosition = transform.position + new Vector3(0, 1, 0);
-    GameObject rockObject = Instantiate(pfthrowingrock, rockPosition, Quaternion.identity);
-    Rigidbody2D rockRigidbody = rockObject.GetComponent<Rigidbody2D>();
-
-    // Kiểm tra xem có Rigidbody2D trên đối tượng pfthrowingrock
-    if (rockRigidbody != null)
+    private void throwrock()
     {
-        // Áp dụng lực văng cho đối tượng pfthrowingrock
-        Vector2 direction = (/*điểm muốn ném đến*/ - transform.position).normalized;
-        rockRigidbody.velocity = direction * 10f /*lực văng mong muốn*/;
+        // Thêm một offset vào vị trí khởi tạo của đá
+        Vector3 rockPosition = transform.position + new Vector3(0, 1, 0);
+        GameObject rockObject = Instantiate(pfthrowingrock, rockPosition, Quaternion.identity);
+        Rigidbody2D rockRigidbody = rockObject.GetComponent<Rigidbody2D>();
+
+        // Kiểm tra xem có Rigidbody2D trên đối tượng pfthrowingrock
+        if (rockRigidbody != null)
+        {
+            // Áp dụng lực văng cho đối tượng pfthrowingrock
+            Vector2 direction = (/*điểm muốn ném đến*/ -transform.position).normalized;
+            rockRigidbody.velocity = direction * 5f /*lực văng mong muốn*/;
+        }
     }
-}
 }

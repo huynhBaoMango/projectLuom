@@ -6,7 +6,7 @@ public class cucda2 : MonoBehaviour
 {
     public GameObject pfminirock;
     private Vector3 mousePosition;
-    private float speed = 5f;
+    private float throwSpeed = 10f; // Tốc độ ném đá
     private Rigidbody2D rb;
     private bool isMoving = true;
 
@@ -23,13 +23,18 @@ public class cucda2 : MonoBehaviour
 
     void Update()
     {
+        // Cập nhật vị trí của chuột mỗi khung hình
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
         if (isMoving)
         {
-            if (speed > 0)
+            if (throwSpeed > 0)
             {
-                speed -= 0.01f;
-                // Di chuyển đối tượng theo hướng của mousePosition
-                transform.position = Vector2.MoveTowards(transform.position, mousePosition, speed * Time.deltaTime);
+                throwSpeed -= 0.01f;
+                // Tính toán hướng từ nhân vật đến chuột
+                Vector2 direction = (mousePosition - transform.position).normalized;
+                // Đặt vận tốc cho đá
+                rb.velocity = direction * throwSpeed;
             }
             else
             {
@@ -39,7 +44,7 @@ public class cucda2 : MonoBehaviour
                 Vector3 rockPosition = transform.position + new Vector3(0, 1, 0);
                 GameObject rockObject = Instantiate(pfminirock, rockPosition, Quaternion.identity);
                 Rigidbody2D rockRigidbody = rockObject.GetComponent<Rigidbody2D>();
-            
+
                 // Hủy GameObject hiện tại
                 Destroy(gameObject);
             }
