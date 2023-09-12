@@ -1,48 +1,80 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class rain : MonoBehaviour
 {
     GameObject rainGenerator;
+    GameObject[] enemy;
+    GameObject[] enemyfov;
+    GameObject rainLEN;
+    GameObject lightningLEN;
     private float waitTime = 5;
-    private float eventTime = 7;
-    [SerializeField] fieldofview enemyFov;
+    private float eventTime = 8;
     // Start is called before the first frame update
     void Start()
     {
         rainGenerator = GameObject.Find("RainGenerator");
+        enemy = GameObject.FindGameObjectsWithTag("enemy");
+        enemyfov = GameObject.FindGameObjectsWithTag("enemyfov");
+        rainLEN = GameObject.Find("rainlen");
+        lightningLEN = GameObject.Find("lightninglen");
         rainGenerator.SetActive(false);
+        rainLEN.SetActive(false);
+        lightningLEN.SetActive(false);
         Debug.Log("a");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(waitTime> 0)
+        if (waitTime > 0)
         {
-            waitTime -= Random.Range(1, 2) * Time.deltaTime;
+            waitTime -= 1 * Time.deltaTime;
+            Debug.Log(waitTime);
+            eventTime= 8;
         }
         else
         {
             eventTime -= 1 * Time.deltaTime;
-        }
-        Debug.Log(waitTime);
-        if (waitTime <= 0)
-        {
-            RainEvent();
-        }
-        if(eventTime <= 0)
-        {
+            Debug.Log(eventTime);
+            if (eventTime > 3)
+            {
+                RainEvent(true);
+            }
+            if (eventTime < 3)
+            {
+                RainEvent(false);
+                LightningEvent(true);
+            }
+            if (eventTime <= 0)
+            {
+                LightningEvent(false);
+                waitTime = 10;
+            }
+
 
         }
-        
     }
     
-    private void RainEvent()
+    public void RainEvent(bool x)
     {
-        rainGenerator.SetActive(true);
-        GameObject enemyfov = GameObject.FindWithTag("enemyfov");
-        enemyFov.viewDistance -= 1;
+        rainLEN.SetActive(x);
+        rainGenerator.SetActive(x);
+        for (int i = 0; i < enemy.Length; i++)
+        {
+            enemy[i].GetComponent<testmove>().RainEV(x);
+        }
+    }
+
+    public void LightningEvent(bool x)
+    {
+        rainGenerator.SetActive(false);
+        lightningLEN.SetActive(x);
+        for (int i = 0; i < enemy.Length; i++)
+        {
+            enemy[i].GetComponent<testmove>().LightningEV(x);
+        }
     }
 }
