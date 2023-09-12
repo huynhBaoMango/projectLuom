@@ -107,8 +107,4 @@ public class fieldofview : MonoBehaviour
         this.viewDistance = viewDistance;
     }
 
-    public void RainViewDistance()
-    {
-        this.viewDistance -= 1;
-    }
 }

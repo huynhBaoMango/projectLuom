@@ -213,5 +213,40 @@ public class testmove : MonoBehaviour
             }
         }
     }
+    private bool rainbool = false;
+    public void RainEV(bool active)
+    {
+        
+        if (active && !rainbool)
+        {
+            this.viewDistance /= 2;
+            Fieldofview.SetViewDistance(this.viewDistance);
+            rainbool= true;
+        }
+        if(!active && rainbool)
+        {
+            this.viewDistance *= 2;
+            Fieldofview.SetViewDistance(this.viewDistance);
+            rainbool= false;    
+        }
+    }
+
+
+    private bool ligtbool = false;
+    public void LightningEV(bool active)
+    {
+        if (active && !ligtbool)
+        {
+            this.viewDistance *= 2;
+            Fieldofview.SetViewDistance(this.viewDistance);
+            ligtbool= true;
+        }
+        if(!active && ligtbool)
+        {
+            this.viewDistance /= 2;
+            Fieldofview.SetViewDistance(this.viewDistance);
+            ligtbool= false;
+        }
+    }
 
 }
