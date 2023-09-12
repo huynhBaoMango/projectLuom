@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class rain : MonoBehaviour
 {
     GameObject rainGenerator;
     GameObject[] enemy;
     GameObject[] enemyfov;
+    GameObject rainLEN;
+    GameObject lightningLEN;
     private float waitTime = 5;
     private float eventTime = 8;
     // Start is called before the first frame update
@@ -15,7 +18,11 @@ public class rain : MonoBehaviour
         rainGenerator = GameObject.Find("RainGenerator");
         enemy = GameObject.FindGameObjectsWithTag("enemy");
         enemyfov = GameObject.FindGameObjectsWithTag("enemyfov");
+        rainLEN = GameObject.Find("rainlen");
+        lightningLEN = GameObject.Find("lightninglen");
         rainGenerator.SetActive(false);
+        rainLEN.SetActive(false);
+        lightningLEN.SetActive(false);
         Debug.Log("a");
     }
 
@@ -26,6 +33,7 @@ public class rain : MonoBehaviour
         {
             waitTime -= 1 * Time.deltaTime;
             Debug.Log(waitTime);
+            eventTime= 8;
         }
         else
         {
@@ -52,7 +60,8 @@ public class rain : MonoBehaviour
     
     public void RainEvent(bool x)
     {
-        rainGenerator.SetActive(true);
+        rainLEN.SetActive(x);
+        rainGenerator.SetActive(x);
         for (int i = 0; i < enemy.Length; i++)
         {
             enemy[i].GetComponent<testmove>().RainEV(x);
@@ -62,6 +71,7 @@ public class rain : MonoBehaviour
     public void LightningEvent(bool x)
     {
         rainGenerator.SetActive(false);
+        lightningLEN.SetActive(x);
         for (int i = 0; i < enemy.Length; i++)
         {
             enemy[i].GetComponent<testmove>().LightningEV(x);
