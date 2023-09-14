@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 3872395062763692865}
   - component: {fileID: 9139840809110425404}
   - component: {fileID: 8218750046253391277}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: throwingrock
-  m_TagString: Untagged
+  m_TagString: rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

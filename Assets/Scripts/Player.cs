@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Player : MonoBehaviour
     public string sceneName;
     public bool isMoving;
     public bool hasRock = false;
+    public Image imgrock; // Thêm dòng này vào đầu script
 
     void Start()
     {
@@ -125,6 +127,7 @@ public class Player : MonoBehaviour
     public void dead()
     {
         rb.bodyType = RigidbodyType2D.Static;
+        
         animator.SetTrigger("DeadTrigger");
         isAlive = false; // Đặt trạng thái sống/chết thành false khi người chơi chết
         isDead = true;
@@ -135,19 +138,22 @@ public class Player : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("Menuketthuc");
     }
 
-    private void throwrock()
-    {
-        // Thêm một offset vào vị trí khởi tạo của đá
-        Vector3 rockPosition = transform.position + new Vector3(0, 1, 0);
-        GameObject rockObject = Instantiate(pfthrowingrock, rockPosition, Quaternion.identity);
-        Rigidbody2D rockRigidbody = rockObject.GetComponent<Rigidbody2D>();
+  private void throwrock()
+{
+    // Thêm một offset vào vị trí khởi tạo của đá
+    Vector3 rockPosition = transform.position + transform.up;
+    GameObject rockObject = Instantiate(pfthrowingrock, rockPosition, Quaternion.identity);
+    Rigidbody2D rockRigidbody = rockObject.GetComponent<Rigidbody2D>();
 
-        // Kiểm tra xem có Rigidbody2D trên đối tượng pfthrowingrock
-        if (rockRigidbody != null)
-        {
-            // Áp dụng lực văng cho đối tượng pfthrowingrock
-            Vector2 direction = (/*điểm muốn ném đến*/ -transform.position).normalized;
-            rockRigidbody.velocity = direction * 5f /*lực văng mong muốn*/;
-        }
+    // Kiểm tra xem có Rigidbody2D trên đối tượng pfthrowingrock
+    if (rockRigidbody != null)
+    {
+        // Lấy hướng của chuột để xác định hướng ném
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 direction = (mousePosition - transform.position).normalized;
+
+        // Áp dụng lực văng cho đối tượng pfthrowingrock
+        rockRigidbody.velocity = direction * 5f /*lực văng mong muốn*/;
     }
+}
 }
