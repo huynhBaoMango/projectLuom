@@ -179,14 +179,16 @@ public class testmove : MonoBehaviour
         state = State.Busy;
     }
 
-
+    private Vector3 rockPoint;
     private void FindNearRock()
     {
         if(GameObject.FindWithTag("minirock") != null)
         {
-            if (Vector3.Distance(GetPosition(), GameObject.FindWithTag("minirock").transform.position) < viewDistance)
+            if (Vector3.Distance(GetPosition(), GameObject.FindWithTag("minirock").transform.position) < 3)
             {
+                Vector3 rockPoint = GameObject.FindWithTag("minirock").transform.position;
                 state = State.Busy;
+                
             }
             
         }
@@ -195,8 +197,8 @@ public class testmove : MonoBehaviour
 
     private void comeToRock()
     {
-        Vector3 rockPoint = GameObject.FindWithTag("minirock").transform.position;
-        if (Vector3.Distance(GetPosition(), rockPoint) < viewDistance)
+        rockPoint = GameObject.FindWithTag("minirock").transform.position;
+        if (Vector3.Distance(GetPosition(), rockPoint) < 3)
         {
 
             Vector3 dirToRock = (rockPoint - GetPosition()).normalized;
@@ -207,7 +209,6 @@ public class testmove : MonoBehaviour
             if (Vector3.Distance(GetPosition(), rockPoint) < 0.1f)
             {
                 Destroy(GameObject.FindWithTag("minirock"));
-                //thêm hàm xoá biểu tượng trên camera vào đây
                 waitTimer = 3;
                 state = State.Waiting;
             }

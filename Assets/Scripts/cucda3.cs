@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class cucda3 : MonoBehaviour
 {
+    private float timedestroy;
     // Start is called before the first frame update
     void Start()
     {
-        
+        timedestroy = 2;
     }
 
     // Update is called once per frame
@@ -22,7 +23,12 @@ public class cucda3 : MonoBehaviour
             }
             else
             {
-                Destroy(gameObject);
+                timedestroy -= 1 * Time.deltaTime;
+
+                if(timedestroy <= 0)
+                {
+                    Destroy(gameObject);
+                }
             }
 
         }

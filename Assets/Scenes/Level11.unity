@@ -1404,9 +1404,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupDistance: 1
-  player: {fileID: 0}
+  player: {fileID: 1877342748}
   pickup: {fileID: 8300000, guid: a56f5378000b5114aaa56dc45d20dc2d, type: 3}
-  rockImage: {fileID: 0}
+  rockImage: {fileID: 1251875232}
 --- !u!58 &591736960
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -39299,7 +39299,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1130062967
 Transform:
   m_ObjectHideFlags: 0
@@ -47099,7 +47099,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1384258451
 Transform:
   m_ObjectHideFlags: 0
