@@ -23,8 +23,7 @@ public class cucda2 : MonoBehaviour
 
     void Update()
     {
-        // Cập nhật vị trí của chuột mỗi khung hình
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
 
         if (isMoving)
         {
