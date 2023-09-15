@@ -101,10 +101,6 @@ public class Player : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            throwrock();
-        }
 
     }
 
@@ -140,8 +136,8 @@ public class Player : MonoBehaviour
 
   private void throwrock()
 {
-    // Thêm một offset vào vị trí khởi tạo của đá
-    Vector3 rockPosition = transform.position + transform.up;
+        // Thêm một offset vào vị trí khởi tạo của đá
+        Vector3 rockPosition = transform.position;
     GameObject rockObject = Instantiate(pfthrowingrock, rockPosition, Quaternion.identity);
     Rigidbody2D rockRigidbody = rockObject.GetComponent<Rigidbody2D>();
 

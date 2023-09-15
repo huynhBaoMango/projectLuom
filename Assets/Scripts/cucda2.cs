@@ -6,7 +6,7 @@ public class cucda2 : MonoBehaviour
 {
     public GameObject pfminirock;
     private Vector3 mousePosition;
-    private float throwSpeed = 10f; // Tốc độ ném đá
+    private float throwSpeed = 6f; // Tốc độ ném đá
     private Rigidbody2D rb;
     private bool isMoving = true;
 
@@ -40,7 +40,7 @@ public class cucda2 : MonoBehaviour
                 isMoving = false;
                 // Tạo một đối tượng mới từ prefab pfminirock
                 // Thêm một offset vào vị trí khởi tạo của đá
-                Vector3 rockPosition = transform.position + new Vector3(0, 1, 0);
+                Vector3 rockPosition = transform.position;
                 GameObject rockObject = Instantiate(pfminirock, rockPosition, Quaternion.identity);
                 Rigidbody2D rockRigidbody = rockObject.GetComponent<Rigidbody2D>();
 

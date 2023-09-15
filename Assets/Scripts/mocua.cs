@@ -7,7 +7,8 @@ public class mocua : MonoBehaviour
 {
     public bool isLocked = true; // Biến để kiểm tra xem cánh cửa có bị khóa hay không
     public Image keyImage; // Đối tượng Image để hiển thị hình ảnh chìa khóa
-    
+    public AudioClip opened;
+
     void Start()
     {
         keyImage.enabled = false; // Ẩn hình ảnh chìa khóa khi bắt đầu
@@ -25,6 +26,7 @@ public class mocua : MonoBehaviour
                 isLocked = false;
                 gameObject.SetActive(false); // Ẩn cánh cửa
                 keyImage.enabled = false; // Ẩn hình ảnh chìa khóa
+                AudioSource.PlayClipAtPoint(opened, transform.position);
             }
             else
             {

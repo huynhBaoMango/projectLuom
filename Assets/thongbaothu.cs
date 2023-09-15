@@ -9,7 +9,7 @@ public class thongbaothu : MonoBehaviour
     public Button thuButton; // Kéo và thả nút lá thư vào đây trong Unity Inspector
     public TextMeshProUGUI letterText; // Kéo và thả đối tượng TextMeshPro vào đây trong Unity Inspector
 
-    private string[] letterLines = { ".-..-. -.-. .... # / -... ..-.. / .-.. # # -- / - .... .--.- -. / -- # -. --..-- .- -. .... / -.-. ---. / -- # - / -. .... .. # -- / ...- # / --.- ..- .- -. / - .-. # -. --. / -.-. # -. / . -- / --. .. # .--. .-.-.- / .- -. .... / -.-. # -. / . -- / -. .... # - / - .... # / -. .--.- -.-- / ...- .--.- / # # .- / -. ---. / # # -. / -- # - / -. --. ---. .. / .-.. .--.- -. --. / # .- -. --. / -.-. .... # ..- / ... # / - .--.- -. / .--. .... .--.- / -.-. # .- / -.-. .... .. # -. / - .-. .- -. .... .-.-.- / # # .- / # .. # -- / -. .--.- -.-- / -. # -- / - .-. --- -. --. / -- # - / -.- .... ..- / .-. # -. --. / ... .--.- ..- / - .... # -- --..-- / -. # .. / -.-. ---. / -. .... .. # ..- / -.-. --- -. / -.. # -.-. / # .--.- / -. --. ..- -.-- / .... .. # -- / ...- .--.- / -.. ---. -. --. / ... ---. -. --. / -.-. .... # -.-- / -..- .. # - .-.-.- .-..-. / - .-. --- -. --. / - .... # .. / - .. # - / -- # .- / -. .... # / .... .. # -. / -. .- -.-- --..-- / - # -- / -. .... .---. -. / -.-. # .- / -.- # / # # -.-. .... / ... # / -... # / .... # -. / -.-. .... # .-.-.- / -. .... # -. --. / .... .--.- -.-- / -. .... # / .-. # -. --. --..-- / -.- .... .. / -.-. ---. / -..- ..-.. - --..-- / - # -- / -. .... .---. -. / -.-. # .- / .... # / ... # / # # # -.-. / -- # / .-. # -. --. .-.-.- / ...- .---. / ...- # -.-- --..-- / .... .--.- -.-- / .-.. ..- ---. -. / -.-. # -. / - .... # -. / ...- .--.- / -.- .... ---. -. --. / # # / .-.. # / -... # -. / - .... .--.- -. .-.-.- .... .--.- -.-- / -.-. # -. / - .... # -. --..-- / .-.. # # -- / # .-.-.- / -.-. .... # -.-. / . -- / -- .- -.-- -- # -. .-.-.- - .-. .--.- -. / - .-. # -. --. --..-- / .- -. .... / .-.. # -. .... nhấn enter để giải mã","Chú bé Lượm thân mến,Anh có một nhiệm vụ quan trọng cần em giúp. Anh cần em nhặt thư này và đưa nó đến một ngôi làng đang chịu sự tàn phá của chiến tranh. Địa điểm này nằm trong một khu rừng sâu thẳm, nơi có nhiều con dốc đá nguy hiểm và dòng sông chảy xiết.Trong thời tiết mưa như hiện nay, tầm nhìn của kẻ địch sẽ bị hạn chế. Nhưng hãy nhớ rằng, khi có xét, tầm nhìn của họ sẽ được mở rộng. Vì vậy, hãy luôn cẩn thận và không để lộ bản thân.Hãy cẩn thận, Lượm ạ. Chúc em maymắn.Trân trọng, Anh lính nhấn, enter để tắt"}; // Thay đổi này thành nội dung của lá thư
+    private string[] letterLines = { "-.-. .... .- --- / -.-. --- -. --..-- / .-.. ..- --- -- --..-- / -.- .... --- -. --. / -.. .- .. / -.. --- -. --. --..-- / -.-. .... ..- / ...- .. . - / - .... ..- / -. .- -.-- / -.. . / -. .... --- / - --- .. / ... ..- / --. .. ..- .--. / -.. --- / -.-. ..- .- / -.-. --- -. .-.-.- / -. .... ..- / -.-. --- -. / -.. .- / -... .. . - / - .... .. / - .. -. .... / .... .. -. .... / -.-. .... .. . -. / ... ..- / .... .. . -. / - .- .. / .-. .- - / -.-. .- -. --. / - .... .- -. --. --..-- / .--. .... .- .--. / -.. .- / -.-. .... .. . -- / -.. --- -. --. / -. --. --- .. / .-.. .- -. --. / .--. .... ..- --- -.-. / - .. -.-. .... .-.-.- / -.-. .- -.-. / -.. --- -. --. / -.. --- .. / .-.. .. . -. / .-.. .- .. / - .- .. / -. --- .. / -.. --- / -.-. ..- -. --. / -... .. / --.- ..- .- -. / .--. .... .- .--. / -... .- - / --. .. ..- .-.-.- / -. .... ..- -. --. / .-. .- - / -- .- -.-- / -.-. ..- -. --. / .-. .- - / -..- ..- .. / .-.. .- / .... --- / -.. .- / -.- .. .--. / --. .. .- ..- / -.. .. / -. .... ..- -. --. / -- .- - / - .... ..- / -.-. .... ..- .- / - .... --- -. --. / - .. -. / --.- ..- .- -. / - .-. --- -. --. / -.-. ..- .- / -.-. .... ..- -. --. / - .- / - .- .. / -. --. --- .. / .-.. .- -. --. / -.. --- .-.-.- / -.-. --- / .-.. . / .... .. . -. / - .- .. / -.-. --- -. / .-.. .- / -. --. ..- --- .. / .--. .... ..- / .... --- .--. / -. .... .- - / -.-. .... --- / -. .... .. . -- / ...- ..- / -. .- -.-- / ...- .- / -.-. .... ..- / - .. -. / - ..- --- -. --. / -.-. --- -. --..-- / .... .- -.-- / -.. ..- .- / -. .... ..- -. --. / -- .- - / - .... ..- / -.. --- / -.. . -. / -. --- .. / .- -. / - --- .- -. / -. .... .- - / -.-. --- / - .... . .-.-.- / --. ..- .. / .-.. --- .. / .... --- .. / - .... .- -- / -... .- / -- . / --. .. ..- .--. / -.-. .... ..- / -. .... . .-.-.- / -.-. .... ..- -.-. / -.-. --- -. / -- .- -.-- / -- .- -. .-.-.- [Nhấn ENTER để dịch mật mã]", "Chào con, Lượm. Không dài dòng, chú viết thư này để nhờ tới sự giúp đỡ của con. Như con đã biết thì tình hình chiến sự hiện tại rất căng thẳng, Pháp đã chiếm đóng ngôi làng Phước Tích. Các đồng đội liên lạc tại nơi đó cũng bị quân Pháp bắt giữ. Nhưng rất may cũng rất xui là họ đã kịp giấu đi những mật thư chứa thông tin quan trọng của chúng ta tại ngôi làng đó. Có lẽ hiện tại con là người phù hợp nhất cho nhiệm vụ này và chú tin tưởng con, hãy đưa những mật thư đó đến nơi an toàn nhất có thể. Gửi lời hỏi thăm ba mẹ giúp chú nhé. Chúc con may mắn." }; // Thay đổi này thành nội dung của lá thư
     private int currentLine = 0;
     private bool isTyping;
 
@@ -72,7 +72,7 @@ public class thongbaothu : MonoBehaviour
         }
     }
 
-    
+
     private void ShowNextLine()
     {
         // Nếu còn dòng để hiển thị, hiển thị đoạn văn tiếp theo. Nếu không, ẩn hình ảnh lá thư.
@@ -80,7 +80,7 @@ public class thongbaothu : MonoBehaviour
         {
             StartCoroutine(TypeSentence(letterLines[currentLine]));
             currentLine++;
-            
+
         }
         else
         {
@@ -88,7 +88,7 @@ public class thongbaothu : MonoBehaviour
             thuButton.gameObject.SetActive(false);
             letterText.text = "";
             currentLine = 0;
-            
+
         }
     }
 
@@ -99,8 +99,8 @@ public class thongbaothu : MonoBehaviour
         {
             letterText.text += letter;
             yield return new WaitForSeconds(-10f); // Điều chỉnh tốc độ gõ ở đây
-            isTyping=true;
+            isTyping = true;
         }
-        isTyping= false;
+        isTyping = false;
     }
 }

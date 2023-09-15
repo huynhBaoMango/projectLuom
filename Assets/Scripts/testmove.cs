@@ -103,11 +103,11 @@ public class testmove : MonoBehaviour
 
 
                 float distanceBefore = Vector3.Distance(transform.position, waypoint);
-                if(state != State.Busy)
+                if (state != State.Busy)
                 {
                     transform.position = transform.position + waypointDir * speed * Time.deltaTime;
                 }
-                
+
                 float distanceAfter = Vector3.Distance(transform.position, waypoint);
 
                 float arriveDistance = .1f;
@@ -182,17 +182,17 @@ public class testmove : MonoBehaviour
     private Vector3 rockPoint;
     private void FindNearRock()
     {
-        if(GameObject.FindWithTag("minirock") != null)
+        if (GameObject.FindWithTag("minirock") != null)
         {
             if (Vector3.Distance(GetPosition(), GameObject.FindWithTag("minirock").transform.position) < 3)
             {
                 Vector3 rockPoint = GameObject.FindWithTag("minirock").transform.position;
                 state = State.Busy;
-                
+
             }
-            
+
         }
-        
+
     }
 
     private void comeToRock()
@@ -203,7 +203,7 @@ public class testmove : MonoBehaviour
 
             Vector3 dirToRock = (rockPoint - GetPosition()).normalized;
             lastMoveDir = dirToRock;
-            transform.position = transform.position + dirToRock * speed*2 * Time.deltaTime;
+            transform.position = transform.position + dirToRock * speed * 2 * Time.deltaTime;
             float angle1 = Mathf.Atan2(dirToRock.y, dirToRock.x);
             transform.rotation = Quaternion.Euler(0f, 0f, angle1 * Mathf.Rad2Deg - 90f);
             if (Vector3.Distance(GetPosition(), rockPoint) < 0.1f)
@@ -217,18 +217,18 @@ public class testmove : MonoBehaviour
     private bool rainbool = false;
     public void RainEV(bool active)
     {
-        
+
         if (active && !rainbool)
         {
             this.viewDistance /= 2;
             Fieldofview.SetViewDistance(this.viewDistance);
-            rainbool= true;
+            rainbool = true;
         }
-        if(!active && rainbool)
+        if (!active && rainbool)
         {
             this.viewDistance *= 2;
             Fieldofview.SetViewDistance(this.viewDistance);
-            rainbool= false;    
+            rainbool = false;
         }
     }
 
@@ -240,13 +240,13 @@ public class testmove : MonoBehaviour
         {
             this.viewDistance *= 2;
             Fieldofview.SetViewDistance(this.viewDistance);
-            ligtbool= true;
+            ligtbool = true;
         }
-        if(!active && ligtbool)
+        if (!active && ligtbool)
         {
             this.viewDistance /= 2;
             Fieldofview.SetViewDistance(this.viewDistance);
-            ligtbool= false;
+            ligtbool = false;
         }
     }
 
