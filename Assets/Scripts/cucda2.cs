@@ -6,7 +6,7 @@ public class cucda2 : MonoBehaviour
 {
     public GameObject pfminirock;
     private Vector3 mousePosition;
-    private float throwSpeed = 6f; // Tốc độ ném đá
+    private float throwSpeed = 8f; // Tốc độ ném đá
     private Rigidbody2D rb;
     private bool isMoving = true;
 
