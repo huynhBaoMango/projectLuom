@@ -14,7 +14,7 @@ public class thongbaothu : MonoBehaviour
         "Chào con, Lượm. Không dài dòng, chú viết thư này để nhờ tới sự giúp đỡ của con. Như con đã biết thì tình hình chiến sự hiện tại rất căng thẳng, Pháp đã chiếm đóng ngôi làng Phước Tích. Các đồng đội liên lạc tại nơi đó cũng bị quân Pháp bắt giữ. Nhưng rất may cũng rất xui là họ đã kịp giấu đi những mật thư chứa thông tin quan trọng của chúng ta tại ngôi làng đó. Có lẽ hiện tại con là người phù hợp nhất cho nhiệm vụ này và chú tin tưởng con, hãy đưa những mật thư đó đến nơi an toàn nhất có thể. Gửi lời hỏi thăm ba mẹ giúp chú nhé. Chúc con may mắn."
     };
     private int currentLine = 0;
-    private bool isTyping;
+    private bool isTyping = true;
 
     void Start()
     {
@@ -33,6 +33,7 @@ public class thongbaothu : MonoBehaviour
         {
             ShowNextLine();
         }
+
 
         if (Input.GetKeyDown(KeyCode.Escape) && imagethu.activeSelf)
         {
@@ -88,11 +89,12 @@ public class thongbaothu : MonoBehaviour
     IEnumerator TypeSentence(string sentence)
     {
         letterText.text = "";
-        
-		foreach (char letter in sentence.ToCharArray())
+        foreach (char letter in sentence.ToCharArray())
 		{
 			letterText.text += letter;
+            
 			yield return new WaitForEndOfFrame(); // Wait for the end of frame to continue typing, even when the game time is paused
 		}
+        isTyping = false;   
 	}
 }
