@@ -59832,7 +59832,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3069062775615264518, guid: 11b629fb018606745935a8a1b847e5f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.68
+      value: -1.85
       objectReference: {fileID: 0}
     - target: {fileID: 3069062775615264518, guid: 11b629fb018606745935a8a1b847e5f4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -59890,6 +59890,10 @@ PrefabInstance:
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 7927360783390230858, guid: 3e375f31fa5a4d443965245cede9d012, type: 3}
+    - target: {fileID: 3069062775615264568, guid: 11b629fb018606745935a8a1b847e5f4, type: 3}
+      propertyPath: aimDirection.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3069062775615264568, guid: 11b629fb018606745935a8a1b847e5f4, type: 3}
       propertyPath: waitTimeList.Array.size
       value: 2
@@ -65488,7 +65492,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1877342746}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -33.42, y: -7.46, z: 0}
+  m_LocalPosition: {x: -32.88, y: -7.36, z: 0}
   m_LocalScale: {x: 0.8387715, y: 0.62602925, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
