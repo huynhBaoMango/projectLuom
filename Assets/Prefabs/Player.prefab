@@ -29,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5740811338572650779}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11.22, y: -1, z: 0}
   m_LocalScale: {x: 0.8387715, y: 0.62602925, z: 1}
   m_ConstrainProportionsScale: 0
@@ -148,10 +148,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84cc0b7353ae8d443be683b31583e5d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pfthrowingrock: {fileID: 4615183822339211955, guid: 0ab1ce3bb95257b48ba3fa88e20b7bf9, type: 3}
   animator: {fileID: 0}
   isDead: 0
   sceneName: 
-  pickingUp: {fileID: 5740811338572650770}
+  isMoving: 0
+  hasRock: 0
+  imgrock: {fileID: 0}
 --- !u!95 &5740811338572650776
 Animator:
   serializedVersion: 5
