@@ -377,7 +377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3069062775615264568, guid: 11b629fb018606745935a8a1b847e5f4, type: 3}
       propertyPath: waypointList.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3069062775615264568, guid: 11b629fb018606745935a8a1b847e5f4, type: 3}
       propertyPath: waitTimeList.Array.data[0]
@@ -409,7 +409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3069062775615264568, guid: 11b629fb018606745935a8a1b847e5f4, type: 3}
       propertyPath: waypointList.Array.data[1].x
-      value: -27.54
+      value: -20.94
       objectReference: {fileID: 0}
     - target: {fileID: 3069062775615264568, guid: 11b629fb018606745935a8a1b847e5f4, type: 3}
       propertyPath: waypointList.Array.data[1].y
@@ -421,11 +421,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3069062775615264568, guid: 11b629fb018606745935a8a1b847e5f4, type: 3}
       propertyPath: waypointList.Array.data[2].y
-      value: -8.44
+      value: -6.49
       objectReference: {fileID: 0}
     - target: {fileID: 3069062775615264568, guid: 11b629fb018606745935a8a1b847e5f4, type: 3}
       propertyPath: waypointList.Array.data[3].x
-      value: -20.94
+      value: -27.54
       objectReference: {fileID: 0}
     - target: {fileID: 3069062775615264568, guid: 11b629fb018606745935a8a1b847e5f4, type: 3}
       propertyPath: waypointList.Array.data[3].y
@@ -437,6 +437,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3069062775615264568, guid: 11b629fb018606745935a8a1b847e5f4, type: 3}
       propertyPath: waypointList.Array.data[4].y
+      value: -8.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069062775615264568, guid: 11b629fb018606745935a8a1b847e5f4, type: 3}
+      propertyPath: waypointList.Array.data[5].x
+      value: -20.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069062775615264568, guid: 11b629fb018606745935a8a1b847e5f4, type: 3}
+      propertyPath: waypointList.Array.data[5].y
       value: -10.13
       objectReference: {fileID: 0}
     - target: {fileID: 3069062775615264569, guid: 11b629fb018606745935a8a1b847e5f4, type: 3}
