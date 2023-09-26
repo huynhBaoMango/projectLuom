@@ -5,7 +5,7 @@ public class quaman : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("player"))
         {
             if (thu.itemCount == 0)
             {
@@ -16,6 +16,7 @@ public class quaman : MonoBehaviour
             else
             {
                 // Người chơi chưa nhặt được đủ 3 key
+                Debug.Log("chua du thu");
             }
             
         }

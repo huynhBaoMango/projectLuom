@@ -17,7 +17,7 @@ public class mocua : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other)
     {
         // Kiểm tra xem đối tượng va chạm có phải là người chơi hay không
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("player"))
         {
             // Kiểm tra xem người chơi có chìa khóa cần thiết để mở cánh cửa hay không
             if (keyImage.enabled)

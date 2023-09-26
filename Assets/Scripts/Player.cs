@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -16,6 +17,8 @@ public class Player : MonoBehaviour
     public bool isMoving;
     public bool hasRock = false;
     public Image imgrock; // Thêm dòng này vào đầu script
+    public int boxcount = 0;
+    public TextMeshProUGUI boxCountText;
 
     void Start()
     {
@@ -152,4 +155,10 @@ public class Player : MonoBehaviour
         rockRigidbody.velocity = direction * 5f /*lực văng mong muốn*/;
     }
 }
+    
+    public void boxcountUp()
+    {
+        boxcount++;
+        boxCountText.text = boxcount.ToString();
+    }
 }
